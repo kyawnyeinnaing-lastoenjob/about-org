@@ -29,7 +29,7 @@ const Search = styled("div")(({ theme }) => ({
   borderRadius: theme.spacing(1),
   paddingLeft: "8px",
   // border: `1px solid ${theme.palette.colors.white}`,
-  backgroundColor: `rgba(85, 147, 236, 0.7)`,
+  backgroundColor: `rgba(0, 0, 0, 0.05)`,
   cursor: "pointer",
   display: "flex",
   alignItems: "center",
@@ -41,7 +41,7 @@ const Search = styled("div")(({ theme }) => ({
 
 const StyledInputBase = styled(Box)(({ theme }) => ({
   width: 0,
-  color: theme.palette.colors.white,
+  color: theme.palette.colors.gray[600],
   alignItems: "center",
   display: "none",
   opacity: 0,
@@ -141,13 +141,14 @@ const AppHeader: React.FC = () => {
           display: "flex",
           justifyContent: "center",
           boxShadow: 0,
-          bgcolor: "background.paper",
-          background: {
-            xs: "url('/uploads/images/mobile-header-bg.png') no-repeat center / cover",
-            md: "url('/uploads/images/header-bg.svg') no-repeat center / cover",
-          },
+          bgcolor: "background.default",
+          borderBottom: `1px solid rgba(0, 0, 0, 0.05)`,
+          // background: {
+          //   xs: "url('/uploads/images/mobile-header-bg.png') no-repeat center / cover",
+          //   md: "url('/uploads/images/header-bg.svg') no-repeat center / cover",
+          // },
           // background: `linear-gradient(90deg, ${theme.palette.colors.black} 0%, ${theme.palette.colors.gray[800]} 100%), url('/uploads/images/header-bg.png') no-repeat center / cover`,
-          backgroundBlendMode: "multiply",
+          // backgroundBlendMode: "multiply",
           height: 72,
           width: "100%",
         })}
@@ -188,7 +189,7 @@ const AppHeader: React.FC = () => {
                 <Image
                   src={"/uploads/logo-white.svg"}
                   alt="logo"
-                  width={70.44}
+                  width={294}
                   height={72}
                 />
               </Link>
@@ -196,19 +197,14 @@ const AppHeader: React.FC = () => {
           </Box>
           <Stack direction="row" gap={2}>
             <Search onClick={handleClickOpen}>
-              {/* <Box sx={{ width: '24px', height: '24px', display: { xs: 'inline', lg: 'none' } }}>
-                <Image src={'/search-mobile.svg'} alt="search icon" width={24} height={24} />
-              </Box> */}
-
-              <StyledInputBase>Search by job title</StyledInputBase>
               <Stack
                 justifyContent="center"
                 alignItems="center"
                 sx={{
                   width: "36px",
                   height: "36px",
-                  borderRadius: theme.spacing(1),
-                  backgroundColor: theme.palette.colors.orange[400],
+                  // borderRadius: theme.spacing(1),
+                  // backgroundColor: theme.palette.colors.orange[400],
                 }}
               >
                 <Image
@@ -219,6 +215,11 @@ const AppHeader: React.FC = () => {
                   style={{ marginTop: "1px" }}
                 />
               </Stack>
+              {/* <Box sx={{ width: '24px', height: '24px', display: { xs: 'inline', lg: 'none' } }}>
+                <Image src={'/search-mobile.svg'} alt="search icon" width={24} height={24} />
+              </Box> */}
+
+              <StyledInputBase>Search...</StyledInputBase>
             </Search>
 
             <Select

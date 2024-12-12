@@ -18,11 +18,12 @@ import { countrySlugAtom } from "./layout/user/atoms";
 
 const FooterStyled = styled(Box)(({ theme }) => ({
   width: "100%",
-  background: "url('/uploads/images/footer-bg.svg') no-repeat center / cover",
-  [theme.breakpoints.down("md")]: {
-    background:
-      "url('/uploads/images/mobile-footer-bg.png') no-repeat center / cover",
-  },
+  // background: "url('/uploads/images/footer-bg.svg') no-repeat center / cover",
+  // [theme.breakpoints.down("md")]: {
+  //   background:
+  //     "url('/uploads/images/mobile-footer-bg.png') no-repeat center / cover",
+  // },
+  backgroundColor: theme.palette.colors.orange[150],
   display: "flex",
 }));
 
@@ -186,12 +187,13 @@ const Footer: React.FC = () => {
           width: "100%",
           padding: "16px",
           textAlign: "center",
-          background: `linear-gradient(90deg, ${theme.palette.colors.blue[450]} 0%, ${theme.palette.colors.blue[400]} 100%), url('/uploads/images/header-bg.png') no-repeat center / cover`,
+          backgroundColor: theme.palette.colors.orange[900],
+          // background: `linear-gradient(90deg, ${theme.palette.colors.blue[450]} 0%, ${theme.palette.colors.blue[400]} 100%), url('/uploads/images/header-bg.png') no-repeat center / cover`,
           color: "#FFF",
           fontSize: "12px",
         }}
       >
-        © {currentYear} - {currentYear + 1} JDJR. All rights reserved.
+        © {currentYear} - {currentYear + 1} About Org. All rights reserved.
       </Box>
     </Box>
   );

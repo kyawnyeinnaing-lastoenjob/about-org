@@ -1,6 +1,7 @@
 import React from "react";
 
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+// import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import { styled, Typography } from "@mui/material";
 import MenuItem from "@mui/material/MenuItem";
 import MSelect, { SelectChangeEvent } from "@mui/material/Select";
@@ -31,10 +32,10 @@ const MenuItemStyled = styled(MenuItem)(({ theme }) => ({
   },
 }));
 
-const CustomExpandMoreIcon = styled(ExpandMoreIcon)(({ theme }) => ({
+const CustomExpandMoreIcon = styled(ArrowDropDownIcon)(({ theme }) => ({
   fill: theme.breakpoints.up("lg")
-    ? theme.palette.colors.white
-    : theme.palette.colors.white,
+    ? theme.palette.colors.gray[600]
+    : theme.palette.colors.gray[600],
 }));
 
 const Select: React.FC<SelectProps> = ({
@@ -60,7 +61,7 @@ const Select: React.FC<SelectProps> = ({
         // backgroundImage: `linear-gradient(to right bottom, ${theme.palette.colors.blue[400]}, ${theme.palette.colors.blue[450]})`,
         backgroundColor: theme.palette.colors.white,
         boxShadow: "none",
-        border: 0,
+        border: `1px solid ${theme.palette.colors.orange[900]}`,
         ["& p"]: {
           color: theme.palette.colors.blue[600],
         },

@@ -14,27 +14,27 @@ export const dataDisplayUserCustomizations: Components<Theme> = {
         variants: [
           {
             props: {
-              variant: "caption"
+              variant: "caption",
             },
             style: {
               color: gray[900],
               fontWeight: fontWeight.bold,
-              fontSize: fontSize.lg
-            }
+              fontSize: fontSize.lg,
+            },
           },
           {
             props: {
-              variant: "body1"
+              variant: "body1",
             },
             style: {
               color: gray[900],
               fontWeight: fontWeight.regular,
-              fontSize: fontSize.md
-            }
-          }
-        ]
-      }
-    }
+              fontSize: fontSize.md,
+            },
+          },
+        ],
+      },
+    },
   },
   MuiList: {
     styleOverrides: {
@@ -44,33 +44,33 @@ export const dataDisplayUserCustomizations: Components<Theme> = {
         flexDirection: "column",
         gap: 0,
         ["&.search-list .search-list-item"]: {
-          padding: 0
+          padding: 0,
         },
         ["&.search-list"]: {
           "& span": {
-            transition: "color .2s ease"
+            transition: "color .2s ease",
           },
           ["&:hover span"]: {
-            color: theme.palette.colors.blue[900]
-          }
+            color: theme.palette.colors.blue[900],
+          },
         },
         ["& .search-list-item"]: {
           ["&:hover"]: {
             "& svg": {
-              color: theme.palette.colors.blue[900]
-            }
+              color: theme.palette.colors.blue[900],
+            },
           },
           ["& .MuiListItemSecondaryAction-root"]: {
             right: 0,
             "& button": {
               width: "auto",
               height: "auto",
-              padding: 0
-            }
-          }
-        }
-      })
-    }
+              padding: 0,
+            },
+          },
+        },
+      }),
+    },
   },
   MuiListItemButton: {
     styleOverrides: {
@@ -84,48 +84,48 @@ export const dataDisplayUserCustomizations: Components<Theme> = {
           ["&.Mui-selected"]: {
             backgroundImage: `linear-gradient(to right bottom, ${theme.palette.colors.blue[200]}, ${theme.palette.colors.blue[200]})`,
             ["& .MuiListItemText-primary, & .MuiSvgIcon-root"]: {
-              color: theme.palette.colors.blue[600]
-            }
-          }
+              color: theme.palette.colors.blue[600],
+            },
+          },
         },
         "&.sub-item-btn": {
           backgroundColor: theme.palette.colors.white,
           border: "1px solid transparent",
           ["&:hover"]: {
-            backgroundColor: theme.palette.colors.blue[50]
-          }
+            backgroundColor: theme.palette.colors.blue[50],
+          },
         },
         ["&:hover"]: {
           backgroundColor: alpha(theme.palette.colors.blue[400], 0.2),
           color: theme.palette.colors.blue[600],
           transition: "color .3s ease",
           ["& .MuiListItemText-primary"]: {
-            color: theme.palette.colors.blue[600]
+            color: theme.palette.colors.blue[600],
           },
           ["& .MuiListItemText-secondary"]: {
-            color: theme.palette.colors.blue[600]
+            color: theme.palette.colors.blue[600],
           },
           ["& .MuiChip-filled"]: {
-            backgroundColor: theme.palette.colors.blue[600]
-          }
-        }
-      })
-    }
+            backgroundColor: theme.palette.colors.blue[600],
+          },
+        },
+      }),
+    },
   },
   MuiListItemIcon: {
     styleOverrides: {
       root: ({ theme }) => ({
         minWidth: 0,
-        marginRight: theme.spacing(1)
-      })
-    }
+        marginRight: theme.spacing(1),
+      }),
+    },
   },
   MuiListItemText: {
     styleOverrides: {
       root: () => ({
-        color: gray[900]
-      })
-    }
+        color: gray[900],
+      }),
+    },
   },
 
   MuiChip: {
@@ -138,19 +138,19 @@ export const dataDisplayUserCustomizations: Components<Theme> = {
         variants: [
           {
             props: {
-              variant: "filled"
+              variant: "filled",
             },
             style: {
               padding: "2px 4px",
               height: "100%",
               ["& .MuiChip-label"]: {
                 padding: 0,
-                fontSize: fontSize.xs
-              }
-            }
-          }
-        ]
-      })
-    }
-  }
+                fontSize: fontSize.xs,
+              },
+            },
+          },
+        ],
+      }),
+    },
+  },
 };

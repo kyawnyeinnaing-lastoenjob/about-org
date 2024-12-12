@@ -186,12 +186,14 @@ export const colorSchemes = {
         },
         orange: {
           100: "#FFFCEF",
+          150: "#FFF0EB",
           200: "#F5F7F8",
           300: "#D9C886",
           400: "#EED367",
           500: "#FFD600",
           600: "#EFB821",
           700: "#E99700",
+          900: "#d95428",
         },
         blue: {
           50: "#E7F1FF",

@@ -12,7 +12,7 @@ import BackspaceOutlinedIcon from "@mui/icons-material/BackspaceOutlined";
 // import CancelIcon from '@mui/icons-material/Cancel';
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import ClearIcon from "@mui/icons-material/Clear";
-import SearchIcon from "@mui/icons-material/Search";
+// import SearchIcon from "@mui/icons-material/Search";
 import {
   Button,
   debounce,
@@ -127,7 +127,7 @@ const SearchDialog: React.FC<SearchDialogProps> = ({ open, handleClose }) => {
           mb={2}
         >
           <Typography
-            sx={{ color: theme.palette.colors.blue[900] }}
+            sx={{ color: theme.palette.colors.black }}
             variant="caption"
           >
             Search
@@ -165,7 +165,13 @@ const SearchDialog: React.FC<SearchDialogProps> = ({ open, handleClose }) => {
               input: {
                 startAdornment: (
                   <InputAdornment position="start">
-                    <SearchIcon />
+                    {/* <SearchIcon /> */}
+                    <Image
+                      alt=""
+                      src="/uploads/icons/search-pc.svg"
+                      width={24}
+                      height={24}
+                    />
                   </InputAdornment>
                 ),
                 endAdornment: search?.length > 0 && (
@@ -314,7 +320,7 @@ const SearchDialog: React.FC<SearchDialogProps> = ({ open, handleClose }) => {
                     />
                   }
                   title={"No Result Found!"}
-                  desc="Please try entering different keywords"
+                  desc="Please try enter different keyword"
                 />
               )
             ) : listDataFromLS?.length > 0 ? (
@@ -371,7 +377,7 @@ const SearchDialog: React.FC<SearchDialogProps> = ({ open, handleClose }) => {
                   />
                 }
                 title={"No Search History yet!"}
-                desc="Search by entering keywords"
+                desc="Enter keyword to search"
               />
             )}
           </Grid>

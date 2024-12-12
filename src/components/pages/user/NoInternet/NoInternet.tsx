@@ -45,13 +45,13 @@ const NoInternet = () => {
         <Button
           onClick={() => router.push(`/${countrySlug}/ads`)}
           sx={(theme) => ({
-            background: theme.palette.colors.blue[950],
+            background: theme.palette.colors.orange[900],
             width: {
               xs: "200px",
-              lg: "200px",
+              lg: "400px",
             },
             height: "48px",
-            borderRadius: theme.spacing(4),
+            borderRadius: theme.spacing(1),
             color: theme.palette.colors.white,
           })}
         >

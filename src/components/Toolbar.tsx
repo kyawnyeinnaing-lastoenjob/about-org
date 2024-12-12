@@ -1,7 +1,7 @@
 import React from "react";
 
 import { Sorting } from "@/lib/enum";
-import SwapVertIcon from "@mui/icons-material/SwapVert";
+import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import { IconButton, Stack, Typography, useTheme } from "@mui/material";
 
 interface ToolbarProps {
@@ -42,9 +42,9 @@ const Toolbar: React.FC<ToolbarProps> = ({
           },
         })}
       >
-        <span>{sorting === Sorting.ASC ? "Oldest First" : "Latest First"}</span>
+        <span>{sorting === Sorting.ASC ? "Oldest" : "Latest"}</span>
         <IconButton size="small">
-          <SwapVertIcon
+          <ArrowDropDownIcon
             sx={{
               color: theme.palette.colors.gray[600],
               transform: sorting === Sorting.DESC ? "scaleX(-1)" : "scaleX(1)",

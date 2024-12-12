@@ -6,7 +6,7 @@ import { Controller, SubmitHandler, useForm } from "react-hook-form";
 import { z } from "zod";
 
 import Layout from "@/components/layout/admin";
-// import ImageUpload from "@/components/shared/themes/ui/ImageUpload";
+import ImageUpload from "@/components/shared/themes/ui/ImageUpload";
 import { IOSSwitch } from "@/components/shared/themes/ui/styles";
 import RTEEditor from "@/components/shared/themes/ui/TextEditor";
 import { useSnackbar } from "@/hooks/useSnackbar";
@@ -27,6 +27,7 @@ import {
   Select,
   Stack,
   TextField,
+  Typography,
 } from "@mui/material";
 import Grid from "@mui/material/Grid2";
 import { Status } from "@prisma/client";
@@ -51,7 +52,7 @@ const CreateListItem = () => {
   const [checkedFb, setCheckedFb] = useState<boolean>(true);
   const [checkedVb, setCheckedVb] = useState<boolean>(true);
   const [checkedTg, setCheckedTg] = useState<boolean>(true);
-  // const [detailImgUrl, setDetailImgUrl] = useState<string>("");
+  const [detailImgUrl, setDetailImgUrl] = useState<string>("");
   const [countrySelected, setCountrySelected] = useState<string>("");
   const [categorySelected, setCategorySelected] = useState<string>("");
   const [subCategorySelected, setSubCategorySelected] = useState<string>("");
@@ -103,7 +104,7 @@ const CreateListItem = () => {
     const dataToSend: ListingProps = {
       ...data,
       status: checked ? Status.ACTIVE : Status.INACTIVE,
-      // detailImage: detailImgUrl,
+      detailImage: detailImgUrl,
       countryId: countrySelected,
       mainCategoryId: categorySelected,
       subCategoryId: subCategorySelected,
@@ -373,7 +374,7 @@ const CreateListItem = () => {
             />
           </Grid> */}
 
-          {/* <Grid size={{ xs: 12 }}>
+          <Grid size={{ xs: 12 }}>
             <FormLabel htmlFor="address1" sx={{ display: "block" }} required>
               Detail Image{" "}
               <Typography component="span" fontStyle="italic">
@@ -385,7 +386,7 @@ const CreateListItem = () => {
               imgUrl={detailImgUrl}
               setImgUrl={setDetailImgUrl}
             />
-          </Grid> */}
+          </Grid>
 
           <Grid size={{ xs: 12 }}>
             <FormLabel htmlFor="address1" sx={{ display: "block" }}>

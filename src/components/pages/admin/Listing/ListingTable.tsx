@@ -15,7 +15,7 @@ import {
   // type MRT_TableOptions,
   useMaterialReactTable,
 } from "material-react-table";
-// import Image from "next/image";
+import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useMediaQuery } from "react-responsive";
@@ -152,31 +152,31 @@ const ListingTable: React.FC = () => {
 
   const columns = useMemo<MRT_ColumnDef<ListData>[]>(
     () => [
-      // {
-      //   accessorKey: "detailImage",
-      //   enableSorting: false,
-      //   enableColumnFilter: false,
-      //   header: "Detail Image",
-      //   Cell: ({ row }) => {
-      //     return (
-      //       <Box
-      //         width={40}
-      //         height={40}
-      //         sx={{ overflow: "hidden", borderRadius: "50%" }}
-      //       >
-      //         <Image
-      //           width={40}
-      //           height={40}
-      //           alt=""
-      //           src={
-      //             row?.original?.detailImage ??
-      //             "/uploads/images/default/detail.svg"
-      //           }
-      //         />
-      //       </Box>
-      //     );
-      //   },
-      // },
+      {
+        accessorKey: "detailImage",
+        enableSorting: false,
+        enableColumnFilter: false,
+        header: "Detail Image",
+        Cell: ({ row }) => {
+          return (
+            <Box
+              width={40}
+              height={40}
+              sx={{ overflow: "hidden", borderRadius: "50%" }}
+            >
+              <Image
+                width={40}
+                height={40}
+                alt=""
+                src={
+                  row?.original?.detailImage ??
+                  "/uploads/images/default/detail.svg"
+                }
+              />
+            </Box>
+          );
+        },
+      },
       {
         accessorKey: "title",
         enableSorting: false,
