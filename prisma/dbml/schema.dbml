@@ -1,0 +1,181 @@
+//// ------------------------------------------------------
+//// THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+//// ------------------------------------------------------
+
+Table User {
+  id String [pk]
+  name String [not null]
+  userId String [unique, not null]
+  email String [unique, not null]
+  phone String
+  password String [not null]
+  image String
+  status Status [not null, default: 'ACTIVE']
+  createdAt DateTime [default: `now()`, not null]
+  updatedAt DateTime [not null]
+  file File [not null]
+  mainCategory MainCategory [not null]
+  subCategory SubCategory [not null]
+  listing Listing [not null]
+  country Country [not null]
+  role Role
+  roleId String
+}
+
+Table Role {
+  id String [pk]
+  roleName String [not null]
+  users User [not null]
+}
+
+Table File {
+  id String [pk]
+  url String [not null]
+  status Status [not null, default: 'ACTIVE']
+  createdById String
+  createdBy User
+  createdAt DateTime [default: `now()`, not null]
+  updatedAt DateTime [not null]
+}
+
+Table Country {
+  id String [pk]
+  name String [unique, not null]
+  countryCode String [unique, not null]
+  slug String [unique, not null]
+  status Status [not null, default: 'ACTIVE']
+  isDeleted Boolean [not null, default: false]
+  sortingNumber Int [not null]
+  createdById String
+  createdBy User
+  flag String
+  createdAt DateTime [default: `now()`, not null]
+  updatedAt DateTime [not null]
+  Listing Listing [not null]
+  MainCategory MainCategory [not null]
+  SubCategory SubCategory [not null]
+}
+
+Table MainCategory {
+  id String [pk]
+  name String [not null]
+  slug String [unique, not null]
+  categoryImage String
+  status Status [not null, default: 'ACTIVE']
+  isDeleted Boolean [not null, default: false]
+  sortingNumber Int [not null]
+  createdById String
+  createdBy User
+  countryId String
+  country Country
+  createdAt DateTime [default: `now()`, not null]
+  updatedAt DateTime [not null]
+  Listing Listing [not null]
+  SubCategory SubCategory [not null]
+}
+
+Table SubCategory {
+  id String [pk]
+  name String [not null]
+  slug String [unique, not null]
+  subCategoryImage String
+  status Status [not null, default: 'ACTIVE']
+  isDeleted Boolean [not null, default: false]
+  sortingNumber Int [not null]
+  mainCategoryId String
+  mainCategory MainCategory
+  countryId String
+  country Country
+  createdById String
+  createdBy User
+  createdAt DateTime [default: `now()`, not null]
+  updatedAt DateTime [not null]
+  Listing Listing [not null]
+}
+
+Table Listing {
+  id String [pk]
+  title String [not null]
+  slug String [unique, not null]
+  shortDescription String [not null]
+  description String [not null]
+  sortingNumber Int [not null]
+  shareHashTag String
+  shareTitle String
+  shareDescription String
+  shareToFacebook Status [not null, default: 'ACTIVE']
+  shareToTelegram Status [not null, default: 'ACTIVE']
+  shareToViber Status [not null, default: 'ACTIVE']
+  detailImage String
+  subCategoryId String
+  subCategory SubCategory
+  mainCategoryId String
+  mainCategory MainCategory
+  country Country
+  countryId String
+  status Status [not null, default: 'ACTIVE']
+  isDeleted Boolean [not null, default: false]
+  createdById String
+  createdBy User
+  createdAt DateTime [default: `now()`, not null]
+  updatedAt DateTime [not null]
+}
+
+Table ContactUs {
+  id String [pk]
+  phone String[] [not null]
+  email String[] [not null]
+  description String [not null]
+  Socials Social [not null]
+}
+
+Table Social {
+  id String [pk]
+  name String [unique, not null]
+  url String [not null]
+  image String
+  slug String [unique, not null]
+  status Status [not null, default: 'ACTIVE']
+  contact ContactUs [not null]
+  contactId String [not null]
+}
+
+Table About {
+  id String [pk]
+  description String [not null]
+  image String [not null]
+  slogan String [not null]
+  createdAt DateTime [default: `now()`, not null]
+  updatedAt DateTime [not null]
+}
+
+Enum Status {
+  ACTIVE
+  INACTIVE
+}
+
+Ref: User.roleId > Role.id
+
+Ref: File.createdById > User.id
+
+Ref: Country.createdById > User.id
+
+Ref: MainCategory.createdById > User.id
+
+Ref: MainCategory.countryId > Country.id
+
+Ref: SubCategory.mainCategoryId > MainCategory.id
+
+Ref: SubCategory.countryId > Country.id
+
+Ref: SubCategory.createdById > User.id
+
+Ref: Listing.subCategoryId > SubCategory.id
+
+Ref: Listing.mainCategoryId > MainCategory.id
+
+Ref: Listing.countryId > Country.id
+
+Ref: Listing.createdById > User.id
+
+Ref: Social.contactId > ContactUs.id [delete: Cascade]

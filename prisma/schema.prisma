@@ -1,0 +1,182 @@
+generator client {
+  provider      = "prisma-client-js"
+  binaryTargets = ["native", "rhel-openssl-1.0.x"]
+}
+
+generator dbml {
+  provider = "prisma-dbml-generator"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(uuid()) @map("_id")
+  name      String
+  userId    String   @unique
+  email     String   @unique
+  phone     String?
+  password  String
+  image     String?
+  status    Status   @default(ACTIVE)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  file         File[]         @relation("uploadedFiles")
+  mainCategory MainCategory[]
+  subCategory  SubCategory[]
+  listing      Listing[]
+  country      Country[]
+
+  role   Role?   @relation(fields: [roleId], references: [id])
+  roleId String?
+}
+
+model Role {
+  id       String @id @default(uuid()) @map("_id")
+  roleName String
+  users    User[]
+}
+
+model File {
+  id          String   @id @default(uuid()) @map("_id")
+  url         String
+  status      Status   @default(ACTIVE)
+  createdById String?
+  createdBy   User?    @relation("uploadedFiles", fields: [createdById], references: [id])
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Country {
+  id            String  @id @default(uuid()) @map("_id")
+  name          String  @unique
+  countryCode   String  @unique
+  slug          String  @unique
+  status        Status  @default(ACTIVE)
+  isDeleted     Boolean @default(false)
+  sortingNumber Int
+
+  createdById String?
+  createdBy   User?   @relation(fields: [createdById], references: [id])
+  flag        String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  Listing      Listing[]
+  MainCategory MainCategory[]
+  SubCategory  SubCategory[]
+}
+
+model MainCategory {
+  id            String  @id @default(uuid()) @map("_id")
+  name          String
+  slug          String  @unique
+  categoryImage String?
+
+  status        Status  @default(ACTIVE)
+  isDeleted     Boolean @default(false)
+  sortingNumber Int
+
+  createdById String?
+  createdBy   User?    @relation(fields: [createdById], references: [id])
+  countryId   String?
+  country     Country? @relation(fields: [countryId], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  Listing     Listing[]
+  SubCategory SubCategory[]
+}
+
+model SubCategory {
+  id               String  @id @default(uuid()) @map("_id")
+  name             String
+  slug             String  @unique
+  subCategoryImage String?
+  status           Status  @default(ACTIVE)
+  isDeleted        Boolean @default(false)
+  sortingNumber    Int
+
+  mainCategoryId String?
+  mainCategory   MainCategory? @relation(fields: [mainCategoryId], references: [id])
+  countryId      String?
+  country        Country?      @relation(fields: [countryId], references: [id])
+
+  createdById String?
+  createdBy   User?   @relation(fields: [createdById], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  Listing Listing[]
+}
+
+model Listing {
+  id               String  @id @default(uuid()) @map("_id")
+  title            String
+  slug             String  @unique
+  shortDescription String
+  description      String
+  sortingNumber    Int
+  shareHashTag     String?
+  shareTitle       String?
+  shareDescription String?
+  shareToFacebook  Status  @default(ACTIVE)
+  shareToTelegram  Status  @default(ACTIVE)
+  shareToViber     Status  @default(ACTIVE)
+
+  detailImage String?
+
+  subCategoryId  String?
+  subCategory    SubCategory?  @relation(fields: [subCategoryId], references: [id])
+  mainCategoryId String?
+  mainCategory   MainCategory? @relation(fields: [mainCategoryId], references: [id])
+  country        Country?      @relation(fields: [countryId], references: [id])
+  countryId      String?
+
+  status      Status  @default(ACTIVE)
+  isDeleted   Boolean @default(false)
+  createdById String?
+  createdBy   User?   @relation(fields: [createdById], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model ContactUs {
+  id          String   @id @default(uuid()) @map("_id")
+  phone       String[] @default([])
+  email       String[] @default([])
+  description String
+  Socials     Social[] @relation("ContactSocials")
+}
+
+model Social {
+  id        String    @id @default(uuid()) @map("_id")
+  name      String    @unique
+  url       String
+  image     String?
+  slug      String    @unique
+  status    Status    @default(ACTIVE)
+  contact   ContactUs @relation("ContactSocials", fields: [contactId], references: [id], onDelete: Cascade)
+  contactId String
+}
+
+model About {
+  id          String   @id @default(uuid()) @map("_id")
+  description String
+  image       String
+  slogan      String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+enum Status {
+  ACTIVE
+  INACTIVE
+}
