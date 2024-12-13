@@ -1,4 +1,4 @@
-import { alpha, Components, Theme } from "@mui/material/styles";
+import { Components, Theme } from "@mui/material/styles";
 
 import { fontSize, fontWeight } from "../../fontStyles";
 import { gray } from "../../themePrimitives";
@@ -51,13 +51,13 @@ export const dataDisplayUserCustomizations: Components<Theme> = {
             transition: "color .2s ease",
           },
           ["&:hover span"]: {
-            color: theme.palette.colors.blue[900],
+            color: theme.palette.colors.orange[900],
           },
         },
         ["& .search-list-item"]: {
           ["&:hover"]: {
             "& svg": {
-              color: theme.palette.colors.blue[900],
+              color: theme.palette.colors.orange[900],
             },
           },
           ["& .MuiListItemSecondaryAction-root"]: {
@@ -75,38 +75,32 @@ export const dataDisplayUserCustomizations: Components<Theme> = {
   MuiListItemButton: {
     styleOverrides: {
       root: ({ theme }) => ({
-        border: "1px solid",
+        border: "1px solid transparent",
         borderRadius: theme.spacing(1),
         "&.item-btn": {
-          border: "1px solid",
-          backgroundColor: theme.palette.colors.blue[100],
-          borderColor: theme.palette.colors.blue[350],
+          border: "none",
+          backgroundColor: theme.palette.colors.orange[100],
+          borderColor: theme.palette.colors.orange[350],
           ["&.Mui-selected"]: {
-            backgroundImage: `linear-gradient(to right bottom, ${theme.palette.colors.blue[200]}, ${theme.palette.colors.blue[200]})`,
+            backgroundImage: `linear-gradient(to right bottom, ${theme.palette.colors.orange[900]}, ${theme.palette.colors.orange[900]})`,
             ["& .MuiListItemText-primary, & .MuiSvgIcon-root"]: {
-              color: theme.palette.colors.blue[600],
+              color: theme.palette.colors.white,
             },
           },
         },
         "&.sub-item-btn": {
           backgroundColor: theme.palette.colors.white,
-          border: "1px solid transparent",
-          ["&:hover"]: {
-            backgroundColor: theme.palette.colors.blue[50],
-          },
+          border: "1px solid theme.palette.colors.orange[900]",
         },
         ["&:hover"]: {
-          backgroundColor: alpha(theme.palette.colors.blue[400], 0.2),
-          color: theme.palette.colors.blue[600],
+          border: `1px solid ${theme.palette.colors.orange[900]}`,
+          color: theme.palette.colors.black,
           transition: "color .3s ease",
           ["& .MuiListItemText-primary"]: {
-            color: theme.palette.colors.blue[600],
+            color: theme.palette.colors.black,
           },
           ["& .MuiListItemText-secondary"]: {
-            color: theme.palette.colors.blue[600],
-          },
-          ["& .MuiChip-filled"]: {
-            backgroundColor: theme.palette.colors.blue[600],
+            color: theme.palette.colors.black,
           },
         },
       }),

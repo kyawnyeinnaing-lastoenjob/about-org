@@ -187,7 +187,7 @@ const AppHeader: React.FC = () => {
                 onClick={() => router.refresh()}
               >
                 <Image
-                  src={"/uploads/logo-white.svg"}
+                  src={"/uploads/logo.svg"}
                   alt="logo"
                   width={294}
                   height={72}

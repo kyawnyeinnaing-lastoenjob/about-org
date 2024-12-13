@@ -8,7 +8,8 @@ import { useParams } from "next/navigation";
 import { countrySlugAtom } from "@/components/layout/user/atoms";
 import { fontSize } from "@/components/shared/themes/fontStyles";
 import { CategoryByCountry } from "@/lib/swr-services/country/types";
-import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import PlayArrowRoundedIcon from "@mui/icons-material/PlayArrowRounded";
+// import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import { Box, Chip, List, Stack, styled, useTheme } from "@mui/material";
 import Collapse from "@mui/material/Collapse";
 import ListItemButton from "@mui/material/ListItemButton";
@@ -17,16 +18,26 @@ import ListItemText from "@mui/material/ListItemText";
 import { checkCountryChangeAtom } from "../atoms";
 
 const SubListItemButton = styled(ListItemButton)(({ theme }) => ({
+  ["&:hover"]: {
+    "& .arrow-icon": {
+      display: "block",
+      transition: "display .3s ease",
+    },
+  },
   ["&.Mui-selected"]: {
     // border: '1px solid',
     // borderColor: theme.palette.colors.blue[900],
-    backgroundColor: theme.palette.colors.blue[50],
-    color: theme.palette.colors.blue[900],
+    backgroundColor: theme.palette.colors.orange[50],
+    color: theme.palette.colors.orange[900],
     ["& .MuiListItemText-secondary"]: {
-      color: theme.palette.colors.blue[900],
+      color: theme.palette.colors.orange[900],
     },
     ["& .MuiChip-filled"]: {
-      backgroundColor: theme.palette.colors.blue[900],
+      backgroundColor: theme.palette.colors.orange[900],
+    },
+    "& .arrow-icon": {
+      display: "block",
+      transition: "display .3s ease",
     },
   },
 }));
@@ -122,6 +133,14 @@ const MainCategoryListItem: React.FC<ListItemProps> = ({ category }) => {
                 sx={{ pl: 2 }}
                 selected={params?.subCategorySlug === each?.slug}
               >
+                <PlayArrowRoundedIcon
+                  className="arrow-icon"
+                  sx={(theme) => ({
+                    display: "none",
+                    color: theme.palette.colors.orange[900],
+                    mr: 1,
+                  })}
+                />
                 <Image
                   width={32}
                   height={32}
@@ -158,10 +177,16 @@ const MainCategoryListItem: React.FC<ListItemProps> = ({ category }) => {
                     position: "relative",
                   }}
                 >
-                  <Chip label={each?._count?.Listing ?? 0} variant="filled" />
-                  <ChevronRightIcon
-                    sx={(theme) => ({ color: theme.palette.grey[600], ml: 1 })}
+                  <Chip
+                    label={each?._count?.Listing ?? 0}
+                    variant="filled"
+                    sx={(theme) => ({
+                      bgcolor: theme.palette.colors.orange[900],
+                    })}
                   />
+                  {/* <ChevronRightIcon
+                    sx={(theme) => ({ color: theme.palette.grey[600], ml: 1 })}
+                  /> */}
                 </Stack>
               </SubListItemButton>
             </Link>

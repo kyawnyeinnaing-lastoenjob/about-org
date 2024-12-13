@@ -30,7 +30,8 @@ const Splash: React.FC = () => {
       height="100vh"
       alignItems="center"
       sx={() => ({
-        background: `linear-gradient(90deg, #14046A 0%, #170481 100%)`,
+        // background: `linear-gradient(90deg, #14046A 0%, #170481 100%)`,
+        background: "url('/uploads/loading.svg') no-repeat center / cover",
       })}
     >
       <Stack
@@ -40,9 +41,13 @@ const Splash: React.FC = () => {
         alignItems="center"
         rowGap={2}
       >
-        <Image src={"/uploads/logo.svg"} alt="logo" width={226} height={72} />
-        <Typography color="#FFFFFF">လိုအပ်တိုင်းရှိမည် SHWE Charity</Typography>
-        <Box sx={{ display: "flex", mt: 3 }}>
+        <Image
+          src={"/uploads/logo-white.svg"}
+          alt="logo"
+          width={226}
+          height={72}
+        />
+        <Box sx={{ display: "flex", flexDirection: "row", gap: 1, mt: 3 }}>
           <CircularProgress
             sx={{
               width: "24px !important",
@@ -50,6 +55,7 @@ const Splash: React.FC = () => {
               color: "#FFFFFF",
             }}
           />
+          <Typography color="#FFFFFF">Loading...</Typography>
         </Box>
       </Stack>
     </Stack>
