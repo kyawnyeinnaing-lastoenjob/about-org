@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useAtom } from "jotai";
 import Image from "next/image";
 import Link from "next/link";
@@ -21,8 +21,8 @@ const SubListItemButton = styled(ListItemButton)(({ theme }) => ({
   ["&:hover"]: {
     "& .arrow-icon": {
       display: "block",
-      transition: "display .3s ease",
-    },
+      transition: "display .3s ease"
+    }
   },
   ["&.Mui-selected"]: {
     // border: '1px solid',
@@ -30,16 +30,16 @@ const SubListItemButton = styled(ListItemButton)(({ theme }) => ({
     backgroundColor: theme.palette.colors.orange[50],
     color: theme.palette.colors.orange[900],
     ["& .MuiListItemText-secondary"]: {
-      color: theme.palette.colors.orange[900],
+      color: theme.palette.colors.orange[900]
     },
     ["& .MuiChip-filled"]: {
-      backgroundColor: theme.palette.colors.orange[900],
+      backgroundColor: theme.palette.colors.orange[900]
     },
     "& .arrow-icon": {
       display: "block",
-      transition: "display .3s ease",
-    },
-  },
+      transition: "display .3s ease"
+    }
+  }
 }));
 
 interface ListItemProps {
@@ -54,17 +54,24 @@ const MainCategoryListItem: React.FC<ListItemProps> = ({ category }) => {
   const [countrySlug] = useAtom(countrySlugAtom);
   const [, setCheckCountryChange] = useAtom(checkCountryChangeAtom);
   const params = useParams();
+  const { mainCategorySlug } = params;
   const theme = useTheme();
   const handleClick = () => {
     setOpen(!open);
   };
+
+  useEffect(() => {
+    if (mainCategorySlug) {
+      setOpen(category?.slug === mainCategorySlug);
+    }
+  }, [category, mainCategorySlug]);
 
   return (
     <Box
       sx={(theme) => ({
         bgcolor: theme.palette.colors.white,
         borderRadius: theme.spacing(2),
-        ...(open && { mb: 2 }),
+        ...(open && { mb: 2 })
       })}
     >
       <ListItemButton
@@ -92,11 +99,11 @@ const MainCategoryListItem: React.FC<ListItemProps> = ({ category }) => {
               WebkitBoxOrient: "vertical",
               overflow: "hidden",
               textOverflow: "ellipsis",
-              WebkitLineClamp: 2,
-            },
+              WebkitLineClamp: 2
+            }
           }}
           sx={{
-            "& span": { fontWeight: open ? 700 : 400, fontSize: fontSize.sm },
+            "& span": { fontWeight: open ? 700 : 400, fontSize: fontSize.sm }
           }}
         />
         {open ? (
@@ -118,7 +125,7 @@ const MainCategoryListItem: React.FC<ListItemProps> = ({ category }) => {
       <Collapse in={open} timeout="auto" unmountOnExit>
         <List component="div" disablePadding sx={{ rowGap: 1, px: "4px" }}>
           {category?.SubCategory?.filter(
-            (each) => each?._count?.Listing > 0,
+            (each) => each?._count?.Listing > 0
           )?.map((each, index) => (
             <Link
               href={`/${countrySlug}/ads/list/${category.slug}/${each.slug}`}
@@ -138,7 +145,7 @@ const MainCategoryListItem: React.FC<ListItemProps> = ({ category }) => {
                   sx={(theme) => ({
                     display: "none",
                     color: theme.palette.colors.orange[900],
-                    mr: 1,
+                    mr: 1
                   })}
                 />
                 <Image
@@ -153,7 +160,7 @@ const MainCategoryListItem: React.FC<ListItemProps> = ({ category }) => {
                   alt="icon"
                   style={{
                     marginRight: "8px",
-                    borderRadius: theme.spacing(1),
+                    borderRadius: theme.spacing(1)
                   }}
                 />
 
@@ -165,8 +172,8 @@ const MainCategoryListItem: React.FC<ListItemProps> = ({ category }) => {
                       overflow: "hidden",
                       textOverflow: "ellipsis",
                       WebkitLineClamp: 2,
-                      fontSize: fontSize.sm,
-                    },
+                      fontSize: fontSize.sm
+                    }
                   }}
                   secondary={each?.name}
                 />
@@ -174,14 +181,14 @@ const MainCategoryListItem: React.FC<ListItemProps> = ({ category }) => {
                   direction="row"
                   alignItems="center"
                   sx={{
-                    position: "relative",
+                    position: "relative"
                   }}
                 >
                   <Chip
                     label={each?._count?.Listing ?? 0}
                     variant="filled"
                     sx={(theme) => ({
-                      bgcolor: theme.palette.colors.orange[900],
+                      bgcolor: theme.palette.colors.orange[900]
                     })}
                   />
                   {/* <ChevronRightIcon
