@@ -5,6 +5,10 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
+        hostname: 'static-web-series-dev.s3.ap-southeast-1.amazonaws.com',
+      },
+      {
+        protocol: 'https',
         hostname: 'admin-shwecharity-devv.s3.ap-southeast-1.amazonaws.com',
       },
       {

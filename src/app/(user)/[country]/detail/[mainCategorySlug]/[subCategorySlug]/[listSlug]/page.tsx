@@ -9,6 +9,7 @@ import {
   getListingBySlug,
 } from "@/lib/services/listing";
 import { getMainCategoryBySlug } from "@/lib/services/mainCategory";
+import { checkMaintenance } from "@/lib/settings";
 import { decodeSlug } from "@/utils";
 
 interface PageProps {
@@ -55,6 +56,7 @@ const ItemDetailsPages: NextPage<PageProps> = async (props) => {
     decodeSlug(listSlug),
     decodeSlug(country),
   );
+  const maintenance = await checkMaintenance();
 
   if (!checkItemIsExit) {
     return redirect(`/${country}/ads`);
@@ -62,6 +64,10 @@ const ItemDetailsPages: NextPage<PageProps> = async (props) => {
 
   if (!checkMainCateSlug) {
     return notFound();
+  }
+
+  if (maintenance) {
+    return redirect("/maintenance");
   }
 
   return <ItemDetail subCategorySlug={subCategorySlug} listSlug={listSlug} />;

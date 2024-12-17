@@ -54,6 +54,13 @@ export const aboutUsSchema = z.object({
 
 export type AboutProps = z.infer<typeof aboutUsSchema>;
 
+export const settingSchema = z.object({
+  status: z.nativeEnum(Status),
+  name: z.string().min(1, "Name is required"),
+});
+
+export type SettingProps = z.infer<typeof settingSchema>;
+
 export const swapSortNumberSchema = z.object({
   id1: z.string().min(1, "ID 1 is required!"),
   id2: z.string().min(1, "ID 2 is required!"),
