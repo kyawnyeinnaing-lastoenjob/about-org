@@ -4,40 +4,31 @@ import { useAtom } from "jotai";
 import Image from "next/image";
 import Link from "next/link";
 import { useParams } from "next/navigation";
-
+import AddRoundedIcon from "@mui/icons-material/AddRounded";
+import RemoveRoundedIcon from "@mui/icons-material/RemoveRounded";
 import { countrySlugAtom } from "@/components/layout/user/atoms";
 import { fontSize } from "@/components/shared/themes/fontStyles";
 import { CategoryByCountry } from "@/lib/swr-services/country/types";
-import PlayArrowRoundedIcon from "@mui/icons-material/PlayArrowRounded";
-// import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import { Box, Chip, List, Stack, styled, useTheme } from "@mui/material";
 import Collapse from "@mui/material/Collapse";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 
 import { checkCountryChangeAtom } from "../atoms";
+import { decodeSlug } from "@/utils";
 
 const SubListItemButton = styled(ListItemButton)(({ theme }) => ({
-  ["&:hover"]: {
-    "& .arrow-icon": {
-      display: "block",
-      transition: "display .3s ease"
-    }
-  },
   ["&.Mui-selected"]: {
     // border: '1px solid',
     // borderColor: theme.palette.colors.blue[900],
-    backgroundColor: theme.palette.colors.orange[50],
-    color: theme.palette.colors.orange[900],
+    backgroundColor: theme.palette.colors.blue[50],
+    color: theme.palette.colors.blue[900],
     ["& .MuiListItemText-secondary"]: {
-      color: theme.palette.colors.orange[900]
+      color: theme.palette.colors.blue[900]
     },
     ["& .MuiChip-filled"]: {
-      backgroundColor: theme.palette.colors.orange[900]
-    },
-    "& .arrow-icon": {
-      display: "block",
-      transition: "display .3s ease"
+      backgroundColor: theme.palette.colors.blue[900]
     }
   }
 }));
@@ -49,12 +40,13 @@ interface ListItemProps {
 }
 
 const MainCategoryListItem: React.FC<ListItemProps> = ({ category }) => {
+  const params = useParams();
   const [open, setOpen] = useState<boolean>(false);
   const [active, setActive] = useState<boolean>(false);
   const [countrySlug] = useAtom(countrySlugAtom);
   const [, setCheckCountryChange] = useAtom(checkCountryChangeAtom);
-  const params = useParams();
   const { mainCategorySlug } = params;
+
   const theme = useTheme();
   const handleClick = () => {
     setOpen(!open);
@@ -62,7 +54,7 @@ const MainCategoryListItem: React.FC<ListItemProps> = ({ category }) => {
 
   useEffect(() => {
     if (mainCategorySlug) {
-      setOpen(category?.slug === mainCategorySlug);
+      setOpen(category?.slug === decodeSlug(mainCategorySlug));
     }
   }, [category, mainCategorySlug]);
 
@@ -71,7 +63,7 @@ const MainCategoryListItem: React.FC<ListItemProps> = ({ category }) => {
       sx={(theme) => ({
         bgcolor: theme.palette.colors.white,
         borderRadius: theme.spacing(2),
-        ...(open && { mb: 2 })
+        ...(open && { mb: 1 })
       })}
     >
       <ListItemButton
@@ -107,23 +99,16 @@ const MainCategoryListItem: React.FC<ListItemProps> = ({ category }) => {
           }}
         />
         {open ? (
-          <Image
-            width={15}
-            height={15}
-            src="/uploads/icons/caret-open.svg"
-            alt="icon"
-          />
+          <RemoveRoundedIcon className="caret" />
         ) : (
-          <Image
-            width={15}
-            height={15}
-            src="/uploads/icons/caret.svg"
-            alt="icon"
+          <AddRoundedIcon
+            className="caret"
+            sx={(theme) => ({ color: theme.palette.colors.gray[700], ml: 1 })}
           />
         )}
       </ListItemButton>
       <Collapse in={open} timeout="auto" unmountOnExit>
-        <List component="div" disablePadding sx={{ rowGap: 1, px: "4px" }}>
+        <List component="div" disablePadding sx={{ rowGap: 1 }}>
           {category?.SubCategory?.filter(
             (each) => each?._count?.Listing > 0
           )?.map((each, index) => (
@@ -138,16 +123,16 @@ const MainCategoryListItem: React.FC<ListItemProps> = ({ category }) => {
               <SubListItemButton
                 className="sub-item-btn"
                 sx={{ pl: 2 }}
-                selected={params?.subCategorySlug === each?.slug}
+                selected={decodeSlug(params?.subCategorySlug) === each?.slug}
               >
-                <PlayArrowRoundedIcon
-                  className="arrow-icon"
-                  sx={(theme) => ({
-                    display: "none",
-                    color: theme.palette.colors.orange[900],
-                    mr: 1
-                  })}
+                <Image
+                  className={`active-sub-cate ${decodeSlug(params?.subCategorySlug) === each?.slug && "active"}`}
+                  width={10}
+                  height={10}
+                  src="/uploads/icons/active-sub-category.svg"
+                  alt="icon"
                 />
+
                 <Image
                   width={32}
                   height={32}
@@ -184,16 +169,10 @@ const MainCategoryListItem: React.FC<ListItemProps> = ({ category }) => {
                     position: "relative"
                   }}
                 >
-                  <Chip
-                    label={each?._count?.Listing ?? 0}
-                    variant="filled"
-                    sx={(theme) => ({
-                      bgcolor: theme.palette.colors.orange[900]
-                    })}
-                  />
-                  {/* <ChevronRightIcon
+                  <Chip label={each?._count?.Listing ?? 0} variant="filled" />
+                  <ChevronRightIcon
                     sx={(theme) => ({ color: theme.palette.grey[600], ml: 1 })}
-                  /> */}
+                  />
                 </Stack>
               </SubListItemButton>
             </Link>

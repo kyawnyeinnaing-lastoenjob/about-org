@@ -2,23 +2,23 @@
 import { LoadingButton } from "@mui/lab";
 import { styled } from "@mui/material";
 
-import { fontSize, fontWeight } from "../../fontStyles";
+import { fontWeight } from "../../fontStyles";
 
 export const StyledLoadingButton = styled(LoadingButton)(({ theme }) => ({
   width: "40px",
   height: "40px",
   justifyContent: "center",
-  backgroundColor: theme.palette.colors.blue[50],
-  border: "2px solid",
-  borderColor: theme.palette.colors.blue[300],
-  fontSize: fontSize.sm,
+  backgroundColor: theme.palette.colors.white,
+  border: "1px solid",
+  borderColor: theme.palette.colors.orange[350],
+  fontSize: theme.spacing(2),
   fontWeight: fontWeight.regular,
-  borderRadius: theme.spacing(2),
+  borderRadius: "10px",
   color: theme.palette.colors.gray[900],
   [theme.breakpoints.up("md")]: {
     ["& .MuiLoadingButton-label"]: {
-      marginLeft: "-5px",
+      marginLeft: "-5px"
     },
-    width: "90px",
-  },
+    width: "80px"
+  }
 }));

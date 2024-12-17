@@ -16,7 +16,7 @@ export const ItemListSkeleton: React.FC<ItemListSkeletonProps> = ({ item }) => {
             spacing={{ xs: 1, lg: 3 }}
             rowGap={{
               xs: 1,
-              md: 2,
+              md: 2
             }}
           >
             {Array.from({ length: item }).map((_, i) => (
@@ -52,7 +52,7 @@ export const ItemListSkeleton: React.FC<ItemListSkeletonProps> = ({ item }) => {
             spacing={{ xs: 1, lg: 3 }}
             rowGap={{
               xs: 1,
-              md: 2,
+              md: 2
             }}
           >
             {Array.from({ length: item }).map((_, i) => (
@@ -85,5 +85,29 @@ export const ItemListSkeleton: React.FC<ItemListSkeletonProps> = ({ item }) => {
         )
       }
     </MediaQuery>
+  );
+};
+
+export const ItemDetailSkeleton = () => {
+  return (
+    <Stack
+      direction="row"
+      justifyContent="space-between"
+      width="100%"
+      columnGap={3}
+    >
+      <Stack width="100%" rowGap={3}>
+        <Stack direction="row" justifyContent="space-between">
+          <Skeleton variant="rounded" width="60%" height={36} />
+          <Skeleton variant="rounded" width="20%" height={36} />
+        </Stack>
+        <Skeleton variant="rounded" width="100%" height={192} />
+        <Skeleton variant="rounded" width="100%" height={100} />
+        <Skeleton variant="rounded" width="75%" height={100} />
+      </Stack>
+      <Stack>
+        <Skeleton variant="rounded" width={400} height={476} />
+      </Stack>
+    </Stack>
   );
 };

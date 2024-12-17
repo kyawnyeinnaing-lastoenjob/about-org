@@ -4,7 +4,6 @@ import { useRouter } from "next/navigation";
 
 import { StyledLoadingButton } from "@/components/shared/themes/ui/styles/Button";
 import ArrowBackRoundedIcon from "@mui/icons-material/ArrowBackRounded";
-import KeyboardArrowRightRoundedIcon from "@mui/icons-material/KeyboardArrowRightRounded";
 import {
   alpha,
   Breadcrumbs,
@@ -14,7 +13,7 @@ import {
   styled,
   Typography,
   useMediaQuery,
-  useTheme,
+  useTheme
 } from "@mui/material";
 
 import { fontWeight } from "./shared/themes/fontStyles";
@@ -36,11 +35,11 @@ interface BreadcrumbProps {
 const StyledBreadcrumbs = styled(Breadcrumbs)(({ theme }) => ({
   // marginBottom: theme.spacing(3),
   [`& .${breadcrumbsClasses.separator}`]: {
-    margin: theme.spacing(0, 1),
+    margin: theme.spacing(0, 1)
   },
   [`& .${breadcrumbsClasses.ol}`]: {
-    alignItems: "center",
-  },
+    alignItems: "center"
+  }
 }));
 
 const Breadcrumb: React.FC<BreadcrumbProps> = (props) => {
@@ -64,7 +63,6 @@ const Breadcrumb: React.FC<BreadcrumbProps> = (props) => {
       direction="row"
       justifyContent="space-between"
       alignItems="flex-start"
-      // sx={{ width: 'calc(100% - 470px)' }}
       sx={{ width: "100%" }}
     >
       <Stack
@@ -90,8 +88,8 @@ const Breadcrumb: React.FC<BreadcrumbProps> = (props) => {
                   sx={{
                     width: 24,
                     height: 24,
-                    color: theme.palette.colors.blue[200],
-                    ...(!isMobile && { marginRight: "4px" }),
+                    color: theme.palette.colors.orange[900],
+                    ...(!isMobile && { marginRight: "4px" })
                   }}
                 />
                 {!isMobile && <span>Back</span>}
@@ -104,7 +102,7 @@ const Breadcrumb: React.FC<BreadcrumbProps> = (props) => {
                   width: 24,
                   height: 24,
                   color: theme.palette.colors.blue[200],
-                  ...(!isMobile && { marginRight: "4px" }),
+                  ...(!isMobile && { marginRight: "4px" })
                 }}
               />
               {!isMobile && <span>Back</span>}
@@ -133,21 +131,18 @@ const Breadcrumb: React.FC<BreadcrumbProps> = (props) => {
         ) : (
           <StyledBreadcrumbs
             aria-label="breadcrumb"
-            separator={
-              <KeyboardArrowRightRoundedIcon
-                fontSize="small"
-                sx={{ color: theme.palette.colors.blue[200] }}
-              />
-            }
             sx={{
               width: {
                 md: detail ? "45%" : "100%",
-                xs: detail ? "100%" : "100%",
+                xs: detail ? "100%" : "100%"
               },
               ["& .MuiBreadcrumbs-ol"]: {
-                flexWrap: "nowrap",
+                flexWrap: "nowrap"
                 // columnGap: theme.spacing(5),
               },
+              ["& .MuiBreadcrumbs-separator"]: {
+                fontSize: { xs: theme.spacing(2), lg: theme.spacing(3) }
+              }
             }}
           >
             {breadcrumbs?.map((each, key) =>
@@ -156,14 +151,14 @@ const Breadcrumb: React.FC<BreadcrumbProps> = (props) => {
                   key={key}
                   variant="body1"
                   sx={{
-                    color: each?.color ?? theme.palette.colors.blue[900],
-                    fontWeight: fontWeight.bold,
-                    fontSize: { xs: "14px", lg: "18px" },
+                    color: each?.color ?? theme.palette.colors.orange[900],
+                    fontWeight: fontWeight.semibold,
+                    fontSize: { xs: theme.spacing(2), lg: theme.spacing(3) },
                     display: "-webkit-box",
                     WebkitBoxOrient: "vertical",
                     overflow: "hidden",
                     textOverflow: "ellipsis",
-                    WebkitLineClamp: 2,
+                    WebkitLineClamp: 2
                   }}
                 >
                   {each?.title}
@@ -173,23 +168,23 @@ const Breadcrumb: React.FC<BreadcrumbProps> = (props) => {
                   <Typography
                     variant="body1"
                     sx={{
-                      color: each?.color ?? "text.primary",
+                      color: each?.color ?? theme.palette.colors.orange[900],
                       fontSize: {
-                        xs: "14px",
-                        lg: "18px",
+                        xs: theme.spacing(2),
+                        lg: theme.spacing(3),
                         display: "-webkit-box",
                         WebkitBoxOrient: "vertical",
                         overflow: "hidden",
                         textOverflow: "ellipsis",
                         WebkitLineClamp: 2,
-                        fontWeight: fontWeight.medium,
-                      },
+                        fontWeight: fontWeight.semibold
+                      }
                     }}
                   >
                     {each?.title}
                   </Typography>
                 </Link>
-              ),
+              )
             )}
           </StyledBreadcrumbs>
         )}

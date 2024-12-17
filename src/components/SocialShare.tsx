@@ -6,7 +6,7 @@ import Draggable from "react-draggable";
 import {
   FacebookShareButton,
   TelegramShareButton,
-  ViberShareButton,
+  ViberShareButton
 } from "react-share";
 
 import { useSnackbar } from "@/hooks/useSnackbar";
@@ -30,7 +30,7 @@ import {
   PopperPlacementType,
   Stack,
   Typography,
-  useTheme,
+  useTheme
 } from "@mui/material";
 import { Status } from "@prisma/client";
 
@@ -70,7 +70,7 @@ const SocialShare: React.FC<SocialShareProps> = ({
   detail,
   fullWidth,
   hashtag,
-  title,
+  title
 }) => {
   const [isCopied, setIsCopied] = useState<boolean>();
   const [copiedText, setCopiedText] = useState<string>("");
@@ -79,7 +79,7 @@ const SocialShare: React.FC<SocialShareProps> = ({
   const [countrySlug] = useAtom(countrySlugAtom);
 
   const anchorRefs = useRef<Record<string | number, HTMLButtonElement | null>>(
-    {},
+    {}
   );
   const { openSnackbar } = useSnackbar();
   const theme = useTheme();
@@ -112,7 +112,7 @@ const SocialShare: React.FC<SocialShareProps> = ({
   const handleCopyAndRetrieve = async () => {
     try {
       await navigator.clipboard.writeText(
-        `${baseUrl}/${countrySlug}/detail/${item?.mainCategory?.slug}/${item?.subCategory?.slug}/${item?.id}`,
+        `${baseUrl}/${countrySlug}/detail/${item?.mainCategory?.slug}/${item?.subCategory?.slug}/${item?.id}`
       );
 
       const text = await navigator.clipboard.readText();
@@ -148,16 +148,18 @@ const SocialShare: React.FC<SocialShareProps> = ({
           sx={{
             color: theme.palette.colors.white,
             border: 0,
-            background: `linear-gradient(90deg, ${theme.palette.colors.orange[600]} 0%, ${theme.palette.colors.orange[700]} 100%)`,
-            ...(fullWidth && { width: "100%" }),
+            background: `linear-gradient(90deg, ${theme.palette.colors.orange[900]} 0%, ${theme.palette.colors.orange[900]} 100%)`,
+            minWidth: 140,
+            fontSize: theme.spacing(2),
+            ...(fullWidth && { width: "100%" })
           }}
         >
           <ShareOutlinedIcon
             sx={{
-              width: 13,
-              height: 13,
-              marginRight: "4px",
-              color: theme.palette.colors.white,
+              width: 22,
+              height: 22,
+              marginRight: theme.spacing(1),
+              color: theme.palette.colors.white
             }}
           />
           Share
@@ -205,7 +207,7 @@ const SocialShare: React.FC<SocialShareProps> = ({
               color: theme.palette.colors.blue[900],
               fontWeight: fontWeight.semibold,
               fontSize: fontSize.xl,
-              p: 0,
+              p: 0
             }}
             id="draggable-dialog-title"
           >
@@ -255,7 +257,7 @@ const SocialShare: React.FC<SocialShareProps> = ({
                       sx={{
                         color: theme.palette.colors.blue[200],
                         width: 20,
-                        height: 20,
+                        height: 20
                       }}
                     />
                   </Typography>
@@ -285,7 +287,7 @@ const SocialShare: React.FC<SocialShareProps> = ({
                       sx={{
                         color: theme.palette.colors.blue[200],
                         width: 20,
-                        height: 20,
+                        height: 20
                       }}
                     />
                   </Typography>
@@ -315,7 +317,7 @@ const SocialShare: React.FC<SocialShareProps> = ({
                       sx={{
                         color: theme.palette.colors.blue[200],
                         width: 20,
-                        height: 20,
+                        height: 20
                       }}
                     />
                   </Typography>
@@ -327,7 +329,7 @@ const SocialShare: React.FC<SocialShareProps> = ({
                 bgcolor: theme.palette.colors.blue[50],
                 p: theme.spacing(2),
                 borderRadius: theme.spacing(2),
-                justifyContent: "space-between",
+                justifyContent: "space-between"
               }}
             >
               <Typography
@@ -344,8 +346,8 @@ const SocialShare: React.FC<SocialShareProps> = ({
                     bgcolor: theme.palette.colors.blue[400],
                     color: theme.palette.colors.white,
                     borderRadius: 1,
-                    px: theme.spacing(1),
-                  }),
+                    px: theme.spacing(1)
+                  })
                 }}
               >
                 {copiedText}

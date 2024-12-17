@@ -1,11 +1,11 @@
-import { Poppins } from "next/font/google";
+import { Figtree } from "next/font/google";
 
-export const poppins = Poppins({
+export const figtree = Figtree({
   weight: ["400", "500", "600", "700"],
-  subsets: ["latin"],
+  subsets: ["latin"]
 });
 
 // Export the font className
-export const poppinsClassName = poppins.className;
+export const webFontClassName = figtree.className;
 
-export const poppinsFontFamily = poppins.style.fontFamily; // Extract the font-family string
+export const webfontFamily = figtree.style.fontFamily; // Extract the font-family string

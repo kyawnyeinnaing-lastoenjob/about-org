@@ -1,8 +1,8 @@
 import React from "react";
 
 import { Sorting } from "@/lib/enum";
-import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import { IconButton, Stack, Typography, useTheme } from "@mui/material";
+import ArrowDropDownRoundedIcon from "@mui/icons-material/ArrowDropDownRounded";
 
 interface ToolbarProps {
   listLength: number;
@@ -15,7 +15,7 @@ const Toolbar: React.FC<ToolbarProps> = ({
   listLength,
   itemCount = 5,
   sorting,
-  setSorting,
+  setSorting
 }) => {
   // const [sorting, setSorting] = useState<Sorting>(Sorting.ASC);
   const theme = useTheme();
@@ -38,16 +38,19 @@ const Toolbar: React.FC<ToolbarProps> = ({
           alignItems: "center",
           cursor: "pointer",
           "& span": {
-            color: theme.palette.colors.gray[900],
-          },
+            color: theme.palette.colors.gray[900]
+          }
         })}
       >
         <span>{sorting === Sorting.ASC ? "Oldest" : "Latest"}</span>
-        <IconButton size="small">
-          <ArrowDropDownIcon
+        <IconButton size="small" sx={{ p: 0 }}>
+          <ArrowDropDownRoundedIcon
             sx={{
               color: theme.palette.colors.gray[600],
-              transform: sorting === Sorting.DESC ? "scaleX(-1)" : "scaleX(1)",
+              transform: sorting === Sorting.DESC ? "scale(-1)" : "scale(1)",
+              fontSize: theme.spacing(3),
+              width: theme.spacing(3),
+              height: theme.spacing(3)
             }}
           />
         </IconButton>

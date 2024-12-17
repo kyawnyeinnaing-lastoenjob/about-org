@@ -3,14 +3,12 @@ import { styled, Typography } from "@mui/material";
 import { fontSize, fontWeight } from "../../fontStyles";
 
 export const DetailTitle = styled(Typography)(({ theme }) => ({
-  marginTop: 3,
-  fontSize: "18px",
-  fontWeight: "bold",
-  marginBottom: theme.spacing(2),
-  color: theme.palette.colors.white,
+  fontSize: theme.spacing(4),
+  fontWeight: fontWeight.bold,
+  color: theme.palette.colors.orange[900],
   [theme.breakpoints.up("lg")]: {
-    fontSize: fontSize.lg,
-  },
+    fontSize: theme.spacing(5)
+  }
   // display: { lg: 'none' },
 }));
 
@@ -27,8 +25,8 @@ export const CardContentTitle = styled(Typography)(({ theme }) => ({
     WebkitLineClamp: 2,
     fontWeight: fontWeight.semibold,
     fontSize: fontSize.lg,
-    marginBottom: theme.spacing(2),
-  },
+    marginBottom: theme.spacing(2)
+  }
 }));
 
 export const CardContentDesc = styled(Typography)(({ theme }) => ({
@@ -38,6 +36,6 @@ export const CardContentDesc = styled(Typography)(({ theme }) => ({
   textOverflow: "ellipsis",
   WebkitLineClamp: 2,
   [theme.breakpoints.down("sm")]: {
-    fontSize: fontSize.sm,
-  },
+    fontSize: fontSize.sm
+  }
 }));

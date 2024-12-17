@@ -3,9 +3,8 @@ import Head from "next/head";
 
 import Providers from "@/providers";
 
-import { poppins } from "./font";
-
 import "./globals.css";
+import { webFontClassName } from "./font";
 
 export const metadata: Metadata = {
   title: "Shwe Charity",
@@ -19,14 +18,14 @@ export const metadata: Metadata = {
   openGraph: {
     images: [
       "https://shwecharity-production.s3.ap-southeast-1.amazonaws.com/SEO+image.png",
-      "/uploads/images/logo/logo-1200x630.png",
-    ],
+      "/uploads/images/logo/logo-1200x630.png"
+    ]
   },
-  manifest: "/manifest.json",
+  manifest: "/manifest.json"
 };
 
 export default function RootLayout({
-  children,
+  children
 }: Readonly<{
   children: React.ReactNode;
 }>) {
@@ -35,7 +34,7 @@ export default function RootLayout({
       <Head>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <body className={poppins.className}>
+      <body className={webFontClassName}>
         <Providers>{children}</Providers>
       </body>
     </html>
