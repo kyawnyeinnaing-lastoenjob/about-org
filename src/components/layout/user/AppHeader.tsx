@@ -142,12 +142,6 @@ const AppHeader: React.FC = () => {
           boxShadow: 0,
           bgcolor: "background.default",
           borderBottom: `1px solid rgba(0, 0, 0, 0.05)`,
-          // background: {
-          //   xs: "url('/uploads/images/mobile-header-bg.png') no-repeat center / cover",
-          //   md: "url('/uploads/images/header-bg.svg') no-repeat center / cover",
-          // },
-          // background: `linear-gradient(90deg, ${theme.palette.colors.black} 0%, ${theme.palette.colors.gray[800]} 100%), url('/uploads/images/header-bg.png') no-repeat center / cover`,
-          // backgroundBlendMode: "multiply",
           height: 72,
           width: "100%"
         })}
@@ -176,8 +170,8 @@ const AppHeader: React.FC = () => {
                 <Image
                   src={"/uploads/mobile-logo.svg"}
                   alt="logo"
-                  width={158}
-                  height={52}
+                  width={174}
+                  height={50}
                 />
               </Link>
             ) : (
@@ -202,8 +196,6 @@ const AppHeader: React.FC = () => {
                 sx={{
                   width: "36px",
                   height: "36px"
-                  // borderRadius: theme.spacing(1),
-                  // backgroundColor: theme.palette.colors.orange[400],
                 }}
               >
                 <Image
