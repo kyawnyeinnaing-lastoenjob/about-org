@@ -1,8 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
 
-import { getMainCategoryById } from "@/lib/services/mainCategory";
 import {
   deleteSubCategory,
+  findExistingSubCategoryName,
+  getSubCategorySortingNumber,
   softDeleteSubCategory,
   updateSubCategory,
 } from "@/lib/services/subCategory";
@@ -44,17 +45,17 @@ export async function PUT(
       status,
     };
 
-    const existingMainCategory = await getMainCategoryById(mainCategoryId);
+    // const existingMainCategory = await getMainCategoryById(mainCategoryId);
+    const sortingNumber = await getSubCategorySortingNumber();
+
+    const getSlug = await findExistingSubCategoryName(name, sortingNumber);
 
     if (
       parsed.data.subCategoryImage !== undefined &&
       parsed.data.subCategoryImage.length > 0
     )
       updatedFields.subCategoryImage = parsed.data.subCategoryImage;
-    updatedFields.slug =
-      parsed.data.name.toLowerCase().replace(/[\p{P}\p{S}\p{Z}]+/gu, "-") +
-      "-" +
-      existingMainCategory?.slug;
+      updatedFields.slug = getSlug?.data;
 
     const updatedData = await updateSubCategory(id, updatedFields);
 
