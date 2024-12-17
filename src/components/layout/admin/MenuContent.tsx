@@ -7,7 +7,7 @@ import ContactPageIcon from "@mui/icons-material/ContactPage";
 // import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
 import InfoRoundedIcon from "@mui/icons-material/InfoRounded";
 import PeopleRoundedIcon from "@mui/icons-material/PeopleRounded";
-// import SettingsRoundedIcon from '@mui/icons-material/SettingsRounded';
+import SettingsRoundedIcon from "@mui/icons-material/SettingsRounded";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
@@ -53,7 +53,7 @@ const userRoutes = [
 ];
 
 const secondaryListItems = [
-  // { text: 'Settings', href: '/admin/settings', icon: <SettingsRoundedIcon /> },
+  { text: "Settings", href: "/admin/settings", icon: <SettingsRoundedIcon /> },
   { text: "About", href: "/admin/about", icon: <InfoRoundedIcon /> },
   { text: "Contact", href: "/admin/contact", icon: <ContactPageIcon /> },
 ];
