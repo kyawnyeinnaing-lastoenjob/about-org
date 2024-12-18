@@ -7,17 +7,17 @@ import "./globals.css";
 import { webFontClassName } from "./font";
 
 export const metadata: Metadata = {
-  title: "Shwe Charity",
+  title: "ABOUT ORG",
   description:
-    "Shwe Charity right away. There will be everything you need Shwe Charity.",
+    "About ORG is information vault for you",
   keywords:
-    "charity, Donation, Help, Need, Resources , Places, Support, People, Country, Townships, Regions",
+    "Information, ORG, organization, Sport, Music, Charity, Production, Movie, Community",
   generator:
-    "charity, Donation, Help, Need, Resources , Places, Support, People, Country, Townships, Regions",
-  applicationName: "Shwe Charity",
+    "Information, ORG, organization, Sport, Music, Charity, Production, Movie, Community",
+  applicationName: "ABOUT ORG",
   openGraph: {
     images: [
-      "https://shwecharity-production.s3.ap-southeast-1.amazonaws.com/SEO+image.png",
+      "https://admin-shwecharity-devv.s3.ap-southeast-1.amazonaws.com/uploads/1734527401501.png",
       "/uploads/images/logo/logo-1200x630.png"
     ]
   },
