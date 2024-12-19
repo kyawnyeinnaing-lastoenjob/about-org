@@ -68,8 +68,7 @@ const MobileCategoriesList: React.FC = () => {
                   <ListItemButton
                     sx={(theme) => ({
                       bgcolor: theme.palette.colors.blue[50],
-                      border: "1px solid",
-                      borderColor: theme.palette.colors.blue[350]
+                      border: "none"
                     })}
                   >
                     <Image
