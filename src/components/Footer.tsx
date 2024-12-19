@@ -93,7 +93,7 @@ const Footer: React.FC = () => {
           ) : (
             <Link href={`/${countrySlug}/ads`}>
               <Image
-                src={"/uploads/logo.svg"}
+                src={"/uploads/footer-logo.svg"}
                 width={197}
                 height={48}
                 alt="image"
