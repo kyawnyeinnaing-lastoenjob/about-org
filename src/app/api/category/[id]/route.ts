@@ -34,11 +34,14 @@ export async function PUT(
       slug: string;
       countryId: string;
     }> = {};
-    
+
     const sortingNumber = await getMainCategorySortingNumber();
 
     // const existingCountry = await getCountryById(parsed.data.countryId!);
-    const getSlug = await findExistingCategoryName(parsed.data.name, sortingNumber);
+    const getSlug = await findExistingCategoryName(
+      parsed.data.name,
+      sortingNumber,
+    );
 
     if (parsed.data.name !== undefined) updatedFields.name = parsed.data.name;
     if (parsed.data.status !== undefined)
@@ -48,7 +51,7 @@ export async function PUT(
       parsed.data.categoryImage.length > 0
     )
       updatedFields.categoryImage = parsed.data.categoryImage;
-      updatedFields.slug = getSlug?.data;
+    updatedFields.slug = getSlug?.data;
 
     const updatedData = await updateMainCategory(id, updatedFields);
 

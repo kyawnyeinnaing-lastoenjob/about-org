@@ -17,8 +17,8 @@ export const StyledLoadingButton = styled(LoadingButton)(({ theme }) => ({
   color: theme.palette.colors.gray[900],
   [theme.breakpoints.up("md")]: {
     ["& .MuiLoadingButton-label"]: {
-      marginLeft: "-5px"
+      marginLeft: "-5px",
     },
-    width: "80px"
-  }
+    width: "80px",
+  },
 }));

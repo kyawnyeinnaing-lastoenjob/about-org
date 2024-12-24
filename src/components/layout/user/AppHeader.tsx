@@ -13,7 +13,7 @@ import {
   Stack,
   styled,
   useMediaQuery,
-  useTheme
+  useTheme,
 } from "@mui/material";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -34,8 +34,8 @@ const Search = styled("div")(({ theme }) => ({
   justifyContent: "center",
   [theme.breakpoints.up("lg")]: {
     paddingLeft: "8px",
-    alignItems: "center"
-  }
+    alignItems: "center",
+  },
 }));
 
 const StyledInputBase = styled(Box)(({ theme }) => ({
@@ -48,8 +48,8 @@ const StyledInputBase = styled(Box)(({ theme }) => ({
     display: "flex",
     width: "240px",
     padding: "4px",
-    opacity: 1
-  }
+    opacity: 1,
+  },
 }));
 
 const AppHeader: React.FC = () => {
@@ -72,14 +72,14 @@ const AppHeader: React.FC = () => {
       (item) =>
         item?.status === "ACTIVE" &&
         item?.categoryCount > 0 &&
-        item?.subCategoryCount > 0
+        item?.subCategoryCount > 0,
     ) || [];
 
   const countryOptions =
     (countries &&
       filteredCountries?.map((country) => ({
         value: country?.slug,
-        label: <Option src={country?.flag} name={country?.name} />
+        label: <Option src={country?.flag} name={country?.name} />,
       }))) ||
     [];
 
@@ -104,7 +104,7 @@ const AppHeader: React.FC = () => {
 
     const countrySlugFromLS = localStorage.getItem(COUNTRY_LS_KEY) || "";
     const selectedCountry = filteredCountries?.find(
-      (country) => country.slug === countrySlugFromLS
+      (country) => country.slug === countrySlugFromLS,
     );
 
     if (selectedCountry) {
@@ -143,7 +143,7 @@ const AppHeader: React.FC = () => {
           bgcolor: "background.default",
           borderBottom: `1px solid rgba(0, 0, 0, 0.05)`,
           height: 72,
-          width: "100%"
+          width: "100%",
         })}
       >
         <Stack
@@ -156,7 +156,7 @@ const AppHeader: React.FC = () => {
             flexDirection: "row",
             justifyContent: "space-between",
             alignItems: "center",
-            p: { xs: "8px 16px", sm: "8px 56px", lg: "8px 104px" }
+            p: { xs: "8px 16px", sm: "8px 56px", lg: "8px 104px" },
           }}
         >
           <Box
@@ -195,7 +195,7 @@ const AppHeader: React.FC = () => {
                 alignItems="center"
                 sx={{
                   width: "36px",
-                  height: "36px"
+                  height: "36px",
                 }}
               >
                 <Image

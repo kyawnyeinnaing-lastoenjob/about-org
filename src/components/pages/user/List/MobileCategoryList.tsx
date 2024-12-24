@@ -23,7 +23,7 @@ const MobileCategoriesList: React.FC = () => {
   const router = useRouter();
 
   const { data: mainCategories, isLoading } = useGetCategoriesByCountry({
-    country: countrySlug
+    country: countrySlug,
   });
 
   React.useEffect(() => {
@@ -38,9 +38,9 @@ const MobileCategoriesList: React.FC = () => {
           p: {
             xs: "8px 16px",
             sm: "8px 56px",
-            lg: "8px 104px"
+            lg: "8px 104px",
           },
-          rowGap: theme.spacing(1)
+          rowGap: theme.spacing(1),
         })}
         component="nav"
         aria-labelledby="nested-list-subheader"
@@ -53,7 +53,7 @@ const MobileCategoriesList: React.FC = () => {
                 height={50}
                 sx={(theme) => ({
                   width: "100%",
-                  borderRadius: theme.spacing(2)
+                  borderRadius: theme.spacing(2),
                 })}
               />
             ))
@@ -68,7 +68,7 @@ const MobileCategoriesList: React.FC = () => {
                   <ListItemButton
                     sx={(theme) => ({
                       bgcolor: theme.palette.colors.blue[50],
-                      border: "none"
+                      border: "none",
                     })}
                   >
                     <Image
@@ -89,20 +89,20 @@ const MobileCategoriesList: React.FC = () => {
                           WebkitBoxOrient: "vertical",
                           overflow: "hidden",
                           textOverflow: "ellipsis",
-                          WebkitLineClamp: 2
-                        }
+                          WebkitLineClamp: 2,
+                        },
                       }}
                       sx={{
                         "& span": {
-                          fontSize: fontSize.sm
-                        }
+                          fontSize: fontSize.sm,
+                        },
                       }}
                       primary={category?.name}
                     />
                     <ChevronRightIcon
                       sx={(theme) => ({
                         color: theme.palette.grey[600],
-                        ml: 1
+                        ml: 1,
                       })}
                     />
                   </ListItemButton>

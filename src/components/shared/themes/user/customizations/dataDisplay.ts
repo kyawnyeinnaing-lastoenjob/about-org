@@ -14,27 +14,27 @@ export const dataDisplayUserCustomizations: Components<Theme> = {
         variants: [
           {
             props: {
-              variant: "caption"
+              variant: "caption",
             },
             style: {
               color: gray[900],
               fontWeight: fontWeight.bold,
-              fontSize: fontSize.lg
-            }
+              fontSize: fontSize.lg,
+            },
           },
           {
             props: {
-              variant: "body1"
+              variant: "body1",
             },
             style: {
               color: gray[900],
               fontWeight: fontWeight.regular,
-              fontSize: fontSize.md
-            }
-          }
-        ]
-      }
-    }
+              fontSize: fontSize.md,
+            },
+          },
+        ],
+      },
+    },
   },
   MuiList: {
     styleOverrides: {
@@ -44,33 +44,33 @@ export const dataDisplayUserCustomizations: Components<Theme> = {
         flexDirection: "column",
         gap: 0,
         ["&.search-list .search-list-item"]: {
-          padding: 0
+          padding: 0,
         },
         ["&.search-list"]: {
           "& span": {
-            transition: "color .2s ease"
+            transition: "color .2s ease",
           },
           ["&:hover span"]: {
-            color: theme.palette.colors.orange[900]
-          }
+            color: theme.palette.colors.orange[900],
+          },
         },
         ["& .search-list-item"]: {
           ["&:hover"]: {
             "& svg": {
-              color: theme.palette.colors.orange[900]
-            }
+              color: theme.palette.colors.orange[900],
+            },
           },
           ["& .MuiListItemSecondaryAction-root"]: {
             right: 0,
             "& button": {
               width: "auto",
               height: "auto",
-              padding: 0
-            }
-          }
-        }
-      })
-    }
+              padding: 0,
+            },
+          },
+        },
+      }),
+    },
   },
   MuiListItemButton: {
     styleOverrides: {
@@ -84,9 +84,9 @@ export const dataDisplayUserCustomizations: Components<Theme> = {
           ["&.Mui-selected"]: {
             backgroundImage: `linear-gradient(to right bottom, ${theme.palette.colors.orange[900]}, ${theme.palette.colors.orange[900]})`,
             ["& .MuiListItemText-primary, & .MuiSvgIcon-root"]: {
-              color: theme.palette.colors.white
-            }
-          }
+              color: theme.palette.colors.white,
+            },
+          },
         },
         "&.sub-item-btn": {
           backgroundColor: theme.palette.colors.gray[50],
@@ -96,8 +96,8 @@ export const dataDisplayUserCustomizations: Components<Theme> = {
             transition: "margin .3s ease",
             ["&.active"]: {
               opacity: 1,
-              marginRight: theme.spacing(1)
-            }
+              marginRight: theme.spacing(1),
+            },
           },
           ["&:hover"]: {
             backgroundColor: theme.palette.colors.orange[150],
@@ -105,15 +105,15 @@ export const dataDisplayUserCustomizations: Components<Theme> = {
             borderColor: theme.palette.colors.orange[900],
             ["& .active-sub-cate"]: {
               opacity: 1,
-              marginRight: theme.spacing(1)
+              marginRight: theme.spacing(1),
             },
             ["& .MuiListItemText-secondary"]: {
-              color: theme.palette.colors.gray[900]
+              color: theme.palette.colors.gray[900],
             },
             ["& .MuiChip-filled"]: {
               backgroundColor: theme.palette.colors.orange[900],
-              color: theme.palette.colors.white
-            }
+              color: theme.palette.colors.white,
+            },
           },
           ["&.Mui-selected"]: {
             border: "1px solid",
@@ -121,49 +121,49 @@ export const dataDisplayUserCustomizations: Components<Theme> = {
             backgroundImage: `linear-gradient(to right bottom, ${theme.palette.colors.white}, ${theme.palette.colors.white})`,
             ["& .MuiListItemText-secondary, & .MuiSvgIcon-root"]: {
               color: theme.palette.colors.orange[900],
-              fontWeight: fontWeight.bold
+              fontWeight: fontWeight.bold,
             },
             ["& .MuiChip-filled"]: {
               backgroundColor: theme.palette.colors.orange[900],
-              color: theme.palette.colors.white
-            }
-          }
+              color: theme.palette.colors.white,
+            },
+          },
         },
         ["&:hover"]: {
           backgroundColor: alpha(theme.palette.colors.orange[900], 1),
           color: theme.palette.colors.white,
           transition: "color .3s ease",
           ["& .MuiListItemText-primary"]: {
-            color: theme.palette.colors.white
+            color: theme.palette.colors.white,
           },
           ["& .MuiListItemText-secondary"]: {
-            color: theme.palette.colors.white
+            color: theme.palette.colors.white,
           },
           ["& .MuiChip-filled"]: {
             backgroundColor: theme.palette.colors.orange[550],
-            color: theme.palette.colors.white
+            color: theme.palette.colors.white,
           },
           ["& .caret"]: {
-            color: theme.palette.colors.white
-          }
-        }
-      })
-    }
+            color: theme.palette.colors.white,
+          },
+        },
+      }),
+    },
   },
   MuiListItemIcon: {
     styleOverrides: {
       root: ({ theme }) => ({
         minWidth: 0,
-        marginRight: theme.spacing(1)
-      })
-    }
+        marginRight: theme.spacing(1),
+      }),
+    },
   },
   MuiListItemText: {
     styleOverrides: {
       root: () => ({
-        color: gray[900]
-      })
-    }
+        color: gray[900],
+      }),
+    },
   },
 
   MuiChip: {
@@ -176,19 +176,19 @@ export const dataDisplayUserCustomizations: Components<Theme> = {
         variants: [
           {
             props: {
-              variant: "filled"
+              variant: "filled",
             },
             style: {
               padding: "2px 4px",
               height: "100%",
               ["& .MuiChip-label"]: {
                 padding: 0,
-                fontSize: fontSize.xs
-              }
-            }
-          }
-        ]
-      })
-    }
-  }
+                fontSize: fontSize.xs,
+              },
+            },
+          },
+        ],
+      }),
+    },
+  },
 };

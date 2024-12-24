@@ -55,7 +55,7 @@ export async function PUT(
       parsed.data.subCategoryImage.length > 0
     )
       updatedFields.subCategoryImage = parsed.data.subCategoryImage;
-      updatedFields.slug = getSlug?.data;
+    updatedFields.slug = getSlug?.data;
 
     const updatedData = await updateSubCategory(id, updatedFields);
 

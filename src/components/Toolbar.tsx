@@ -15,7 +15,7 @@ const Toolbar: React.FC<ToolbarProps> = ({
   listLength,
   itemCount = 5,
   sorting,
-  setSorting
+  setSorting,
 }) => {
   // const [sorting, setSorting] = useState<Sorting>(Sorting.ASC);
   const theme = useTheme();
@@ -38,8 +38,8 @@ const Toolbar: React.FC<ToolbarProps> = ({
           alignItems: "center",
           cursor: "pointer",
           "& span": {
-            color: theme.palette.colors.gray[900]
-          }
+            color: theme.palette.colors.gray[900],
+          },
         })}
       >
         <span>{sorting === Sorting.ASC ? "Oldest" : "Latest"}</span>
@@ -50,7 +50,7 @@ const Toolbar: React.FC<ToolbarProps> = ({
               transform: sorting === Sorting.DESC ? "scale(-1)" : "scale(1)",
               fontSize: theme.spacing(3),
               width: theme.spacing(3),
-              height: theme.spacing(3)
+              height: theme.spacing(3),
             }}
           />
         </IconButton>

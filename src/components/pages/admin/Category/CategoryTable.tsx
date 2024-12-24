@@ -356,6 +356,7 @@ const CategoryTable: React.FC = () => {
                 sx={{
                   width: "100%",
                 }}
+                disabled={row?.original?.countryId ? true : false}
                 defaultValue={row?.original?.countryId}
                 onChange={(e) => setSelected(e?.target?.value as string)}
               >

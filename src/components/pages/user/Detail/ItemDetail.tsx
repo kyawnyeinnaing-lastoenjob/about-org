@@ -15,7 +15,7 @@ import {
   Stack,
   styled,
   useMediaQuery as useMuiMediaQuery,
-  useTheme
+  useTheme,
 } from "@mui/material";
 import { ItemDetailSkeleton } from "@/components/Skeletons";
 
@@ -28,22 +28,22 @@ const StyledDetailImage = styled(Box)(({ theme }) => ({
   display: "flex",
   justifyContent: "center",
   [theme.breakpoints.down("md")]: {
-    marginTop: theme.spacing(3)
+    marginTop: theme.spacing(3),
   },
   ["& img"]: {
     [theme.breakpoints.down("md")]: {
       width: 430,
       height: 430,
       aspectRatio: 1 / 1,
-      objectFit: "cover"
+      objectFit: "cover",
     },
     [theme.breakpoints.down("sm")]: {
       width: 325,
       height: 325,
       aspectRatio: 1 / 1,
-      objectFit: "cover"
-    }
-  }
+      objectFit: "cover",
+    },
+  },
 }));
 
 const ItemDetail: React.FC<ItemDetailProps> = ({ listSlug }) => {
@@ -55,7 +55,7 @@ const ItemDetail: React.FC<ItemDetailProps> = ({ listSlug }) => {
 
   const { data: listDetail, isLoading } = useGetListByCountrySlug({
     listSlug,
-    countrySlug
+    countrySlug,
   });
 
   const breadcrumbs = [
@@ -64,15 +64,15 @@ const ItemDetail: React.FC<ItemDetailProps> = ({ listSlug }) => {
       link: isPC
         ? `/${countrySlug}/ads/list/${listDetail?.data?.mainCategory?.slug}/${listDetail?.data?.subCategory?.slug}`
         : `/${countrySlug}/ads/category/${listDetail?.data?.mainCategory?.slug}`,
-      color: "#1E1E1E"
+      color: "#1E1E1E",
     },
     {
       title: `${listDetail?.data?.subCategory?.name ?? ""}`,
       link: isPC
         ? `/${countrySlug}/ads/list/${listDetail?.data?.mainCategory?.slug}/${listDetail?.data?.subCategory?.slug}`
         : `/${countrySlug}/ads/item-list/${listDetail?.data?.subCategory?.slug}`,
-      color: "#1E1E1E"
-    }
+      color: "#1E1E1E",
+    },
   ];
 
   useEffect(() => {
@@ -85,7 +85,7 @@ const ItemDetail: React.FC<ItemDetailProps> = ({ listSlug }) => {
         subCategorySlug: listDetail.data.subCategory?.slug,
         title: listDetail.data.title,
         imgUrl: listDetail.data.detailImage,
-        countrySlug: listDetail.data.country?.slug
+        countrySlug: listDetail.data.country?.slug,
       };
 
       const isValidNewItem =
@@ -97,7 +97,7 @@ const ItemDetail: React.FC<ItemDetailProps> = ({ listSlug }) => {
       }
 
       const isDuplicate = existingData.some(
-        (item: { slug: string }) => item.slug === newItem.slug
+        (item: { slug: string }) => item.slug === newItem.slug,
       );
 
       if (!isDuplicate) {
@@ -133,7 +133,7 @@ const ItemDetail: React.FC<ItemDetailProps> = ({ listSlug }) => {
             direction={{ sm: "column", lg: "row-reverse" }}
             justifyContent={{
               xs: "flex-start",
-              md: "space-between"
+              md: "space-between",
             }}
             sx={() => ({ width: "100%" })}
           >
@@ -146,7 +146,7 @@ const ItemDetail: React.FC<ItemDetailProps> = ({ listSlug }) => {
                 sx={() => ({
                   width: "100%",
                   display: "flex",
-                  justifyContent: "center"
+                  justifyContent: "center",
                 })}
               >
                 {isPC && (
@@ -217,20 +217,20 @@ const ItemDetail: React.FC<ItemDetailProps> = ({ listSlug }) => {
                   sx={(theme) => ({
                     background: theme.palette.colors.orange[250],
                     padding: 3,
-                    borderRadius: 2
+                    borderRadius: 2,
                   })}
                 >
                   <Box
                     component={"div"}
                     className="text-editor-view"
                     dangerouslySetInnerHTML={{
-                      __html: listDetail?.data?.description
+                      __html: listDetail?.data?.description,
                     }}
                     sx={{
                       color: gray[850],
                       "& a": { color: brand[400], textDecoration: "underline" },
                       "& ul, & ol": { paddingLeft: "40px" },
-                      "& img": { width: "auto" }
+                      "& img": { width: "auto" },
                     }}
                   />
                 </Box>

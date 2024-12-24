@@ -27,15 +27,15 @@ const CategoriesList: React.FC = () => {
   const slug = params?.mainCategorySlug;
 
   const { data: mainCategories, isLoading } = useGetCategoriesByCountry({
-    country: countrySlug
+    country: countrySlug,
   });
 
   const filteredData = mainCategories
     ?.map((mainCategory) => ({
       ...mainCategory,
       SubCategory: mainCategory.SubCategory.filter(
-        (subCategory) => subCategory._count.Listing > 0
-      )
+        (subCategory) => subCategory._count.Listing > 0,
+      ),
     }))
     .filter((mainCategory) => mainCategory.SubCategory.length > 0);
 
@@ -60,7 +60,7 @@ const CategoriesList: React.FC = () => {
                     height={50}
                     sx={(theme) => ({
                       width: "100%",
-                      borderRadius: theme.spacing(2)
+                      borderRadius: theme.spacing(2),
                     })}
                   />
                 ))
@@ -85,7 +85,7 @@ const CategoriesList: React.FC = () => {
             sx={(theme) => ({
               width: "100%",
               p: { xs: "32px 16px", sm: "32px 56px", lg: "32px 104px" },
-              rowGap: theme.spacing(1)
+              rowGap: theme.spacing(1),
             })}
             component="nav"
             aria-labelledby="nested-list-subheader"
@@ -98,7 +98,7 @@ const CategoriesList: React.FC = () => {
                     height={50}
                     sx={(theme) => ({
                       width: "100%",
-                      borderRadius: theme.spacing(2)
+                      borderRadius: theme.spacing(2),
                     })}
                   />
                 ))
@@ -120,7 +120,7 @@ const CategoriesList: React.FC = () => {
                           alt="icon"
                           style={{
                             borderRadius: theme.spacing(1),
-                            marginRight: "8px"
+                            marginRight: "8px",
                           }}
                         />
                         <ListItemText
@@ -131,15 +131,15 @@ const CategoriesList: React.FC = () => {
                               overflow: "hidden",
                               textOverflow: "ellipsis",
                               WebkitLineClamp: 2,
-                              fontSize: fontSize.sm
-                            }
+                              fontSize: fontSize.sm,
+                            },
                           }}
                           primary={category?.name}
                         />
                         <ChevronRightIcon
                           sx={(theme) => ({
                             color: theme.palette.grey[600],
-                            ml: 1
+                            ml: 1,
                           })}
                         />
                       </ListItemButton>

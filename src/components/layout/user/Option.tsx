@@ -15,7 +15,7 @@ export interface OptionProps {
 
 const Option: React.FC<OptionProps> = ({ src, name, hideTypo }) => {
   const [checkCountryChange, setCheckCountryChange] = useAtom(
-    checkCountryChangeAtom
+    checkCountryChangeAtom,
   );
   return (
     <Box
@@ -28,9 +28,9 @@ const Option: React.FC<OptionProps> = ({ src, name, hideTypo }) => {
         ["& p"]: {
           display: {
             xs: hideTypo ? "none" : "inline",
-            lg: "inline"
-          }
-        }
+            lg: "inline",
+          },
+        },
       }}
     >
       {src ? (

@@ -8,8 +8,7 @@ import { webFontClassName } from "./font";
 
 export const metadata: Metadata = {
   title: "ABOUT ORG",
-  description:
-    "About ORG is information vault for you",
+  description: "About ORG is information vault for you",
   keywords:
     "Information, ORG, organization, Sport, Music, Charity, Production, Movie, Community",
   generator:
@@ -18,14 +17,14 @@ export const metadata: Metadata = {
   openGraph: {
     images: [
       "https://admin-shwecharity-devv.s3.ap-southeast-1.amazonaws.com/uploads/1734527401501.png",
-      "/uploads/images/logo/logo-1200x630.png"
-    ]
+      "/uploads/images/logo/logo-1200x630.png",
+    ],
   },
-  manifest: "/manifest.json"
+  manifest: "/manifest.json",
 };
 
 export default function RootLayout({
-  children
+  children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {

@@ -13,7 +13,7 @@ import {
   styled,
   Typography,
   useMediaQuery,
-  useTheme
+  useTheme,
 } from "@mui/material";
 
 import { fontWeight } from "./shared/themes/fontStyles";
@@ -35,11 +35,11 @@ interface BreadcrumbProps {
 const StyledBreadcrumbs = styled(Breadcrumbs)(({ theme }) => ({
   // marginBottom: theme.spacing(3),
   [`& .${breadcrumbsClasses.separator}`]: {
-    margin: theme.spacing(0, 1)
+    margin: theme.spacing(0, 1),
   },
   [`& .${breadcrumbsClasses.ol}`]: {
-    alignItems: "center"
-  }
+    alignItems: "center",
+  },
 }));
 
 const Breadcrumb: React.FC<BreadcrumbProps> = (props) => {
@@ -89,7 +89,7 @@ const Breadcrumb: React.FC<BreadcrumbProps> = (props) => {
                     width: 24,
                     height: 24,
                     color: theme.palette.colors.orange[900],
-                    ...(!isMobile && { marginRight: "4px" })
+                    ...(!isMobile && { marginRight: "4px" }),
                   }}
                 />
                 {!isMobile && <span>Back</span>}
@@ -102,7 +102,7 @@ const Breadcrumb: React.FC<BreadcrumbProps> = (props) => {
                   width: 24,
                   height: 24,
                   color: theme.palette.colors.blue[200],
-                  ...(!isMobile && { marginRight: "4px" })
+                  ...(!isMobile && { marginRight: "4px" }),
                 }}
               />
               {!isMobile && <span>Back</span>}
@@ -134,15 +134,15 @@ const Breadcrumb: React.FC<BreadcrumbProps> = (props) => {
             sx={{
               width: {
                 md: detail ? "45%" : "100%",
-                xs: detail ? "100%" : "100%"
+                xs: detail ? "100%" : "100%",
               },
               ["& .MuiBreadcrumbs-ol"]: {
-                flexWrap: "nowrap"
+                flexWrap: "nowrap",
                 // columnGap: theme.spacing(5),
               },
               ["& .MuiBreadcrumbs-separator"]: {
-                fontSize: { xs: theme.spacing(2), lg: theme.spacing(3) }
-              }
+                fontSize: { xs: theme.spacing(2), lg: theme.spacing(3) },
+              },
             }}
           >
             {breadcrumbs?.map((each, key) =>
@@ -158,7 +158,7 @@ const Breadcrumb: React.FC<BreadcrumbProps> = (props) => {
                     WebkitBoxOrient: "vertical",
                     overflow: "hidden",
                     textOverflow: "ellipsis",
-                    WebkitLineClamp: 2
+                    WebkitLineClamp: 2,
                   }}
                 >
                   {each?.title}
@@ -177,14 +177,14 @@ const Breadcrumb: React.FC<BreadcrumbProps> = (props) => {
                         overflow: "hidden",
                         textOverflow: "ellipsis",
                         WebkitLineClamp: 2,
-                        fontWeight: fontWeight.semibold
-                      }
+                        fontWeight: fontWeight.semibold,
+                      },
                     }}
                   >
                     {each?.title}
                   </Typography>
                 </Link>
-              )
+              ),
             )}
           </StyledBreadcrumbs>
         )}

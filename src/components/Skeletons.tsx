@@ -16,7 +16,7 @@ export const ItemListSkeleton: React.FC<ItemListSkeletonProps> = ({ item }) => {
             spacing={{ xs: 1, lg: 3 }}
             rowGap={{
               xs: 1,
-              md: 2
+              md: 2,
             }}
           >
             {Array.from({ length: item }).map((_, i) => (
@@ -52,7 +52,7 @@ export const ItemListSkeleton: React.FC<ItemListSkeletonProps> = ({ item }) => {
             spacing={{ xs: 1, lg: 3 }}
             rowGap={{
               xs: 1,
-              md: 2
+              md: 2,
             }}
           >
             {Array.from({ length: item }).map((_, i) => (

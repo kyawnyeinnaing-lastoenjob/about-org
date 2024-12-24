@@ -25,22 +25,22 @@ const MenuItemStyled = styled(MenuItem)(({ theme }) => ({
   ["&:hover, &.MuiButtonBase-root.Mui-selected"]: {
     backgroundColor: theme.palette.colors.orange[150],
     outline: "none",
-    ["& p"]: { color: `${theme.palette.colors.orange[900]} !important` }
-  }
+    ["& p"]: { color: `${theme.palette.colors.orange[900]} !important` },
+  },
 }));
 
 const CustomExpandMoreIcon = styled(ArrowDropDownRoundedIcon)(({ theme }) => ({
   fill: theme.breakpoints.up("lg")
     ? theme.palette.colors.gray[600]
     : theme.palette.colors.gray[600],
-  fontSize: theme.spacing(3)
+  fontSize: theme.spacing(3),
 }));
 
 const Select: React.FC<SelectProps> = ({
   selected,
   onChange,
   options,
-  title
+  title,
 }) => {
   return (
     <MSelect
@@ -56,8 +56,8 @@ const Select: React.FC<SelectProps> = ({
                 children: React.ReactNode;
               }>,
               {
-                hideTypo: true
-              }
+                hideTypo: true,
+              },
             )
           : "";
       }}
@@ -67,7 +67,7 @@ const Select: React.FC<SelectProps> = ({
         backgroundColor: theme.palette.colors.white,
         boxShadow: "none",
         border: `1px solid ${theme.palette.colors.orange[900]} !important`,
-        ["& p"]: { color: theme.palette.colors.gray[900] }
+        ["& p"]: { color: theme.palette.colors.gray[900] },
       })}
       MenuProps={{
         anchorOrigin: { vertical: "bottom", horizontal: "center" },
@@ -76,9 +76,9 @@ const Select: React.FC<SelectProps> = ({
           sx: () => ({
             minWidth: { xs: "178px", lg: "178px" },
             padding: "4px",
-            p: 0
-          })
-        }
+            p: 0,
+          }),
+        },
       }}
     >
       {title && (

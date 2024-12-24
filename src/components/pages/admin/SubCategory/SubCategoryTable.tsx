@@ -375,6 +375,7 @@ const SubCategoryTable: React.FC = () => {
               <Select
                 sx={{ width: "100%" }}
                 defaultValue={row?.original?.countryId}
+                disabled={row?.original?.countryId ? true : false}
                 onChange={(e) => setCountrySelected(e?.target?.value as string)}
               >
                 {countries?.length > 0 ? (
@@ -424,6 +425,7 @@ const SubCategoryTable: React.FC = () => {
                 sx={{
                   width: "100%",
                 }}
+                disabled={row?.original?.mainCategoryId ? true : false}
                 defaultValue={row?.original?.mainCategoryId}
                 onChange={(e) =>
                   setCategorySelected(e?.target?.value as string)

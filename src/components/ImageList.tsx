@@ -22,18 +22,18 @@ const BoxStyled = styled(Box)(({ theme }) => ({
   borderRadius: theme.spacing(2),
   cursor: "pointer",
   ["& img"]: {
-    transition: "transform 0.3s ease"
+    transition: "transform 0.3s ease",
   },
   ["&:hover"]: {
     img: {
-      transform: "scale(1.1)"
-    }
+      transform: "scale(1.1)",
+    },
   },
   ["& .backdrop"]: {
     background:
       "linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.6) 90%, rgba(0,0,0,0.7) 95%, rgba(0, 0, 0, 0.8) 100%)",
-    height: "100%"
-  }
+    height: "100%",
+  },
 }));
 
 const ImageList: React.FC<ImageListProps> = ({ list }) => {
@@ -58,9 +58,9 @@ const ImageList: React.FC<ImageListProps> = ({ list }) => {
         sx={(theme) => ({
           gap: {
             xs: `${theme.spacing(1)} !important`,
-            lg: `${theme.spacing(2)} !important`
+            lg: `${theme.spacing(2)} !important`,
           },
-          px: 1
+          px: 1,
         })}
       >
         {list.map((item, index) => (
@@ -80,7 +80,7 @@ const ImageList: React.FC<ImageListProps> = ({ list }) => {
                   style={{
                     width: "100%",
                     height: "100%",
-                    objectFit: "cover"
+                    objectFit: "cover",
                   }}
                 />
                 <Box
@@ -90,7 +90,7 @@ const ImageList: React.FC<ImageListProps> = ({ list }) => {
                     left: 0,
                     width: "100%",
                     height: "100%",
-                    zIndex: 1
+                    zIndex: 1,
                   }}
                   component="div"
                   className="backdrop"

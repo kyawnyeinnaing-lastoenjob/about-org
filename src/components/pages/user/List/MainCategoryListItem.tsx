@@ -25,12 +25,12 @@ const SubListItemButton = styled(ListItemButton)(({ theme }) => ({
     backgroundColor: theme.palette.colors.blue[50],
     color: theme.palette.colors.blue[900],
     ["& .MuiListItemText-secondary"]: {
-      color: theme.palette.colors.blue[900]
+      color: theme.palette.colors.blue[900],
     },
     ["& .MuiChip-filled"]: {
-      backgroundColor: theme.palette.colors.blue[900]
-    }
-  }
+      backgroundColor: theme.palette.colors.blue[900],
+    },
+  },
 }));
 
 interface ListItemProps {
@@ -63,7 +63,7 @@ const MainCategoryListItem: React.FC<ListItemProps> = ({ category }) => {
       sx={(theme) => ({
         bgcolor: theme.palette.colors.white,
         borderRadius: theme.spacing(2),
-        ...(open && { mb: 1 })
+        ...(open && { mb: 1 }),
       })}
     >
       <ListItemButton
@@ -91,11 +91,11 @@ const MainCategoryListItem: React.FC<ListItemProps> = ({ category }) => {
               WebkitBoxOrient: "vertical",
               overflow: "hidden",
               textOverflow: "ellipsis",
-              WebkitLineClamp: 2
-            }
+              WebkitLineClamp: 2,
+            },
           }}
           sx={{
-            "& span": { fontWeight: open ? 700 : 400, fontSize: fontSize.sm }
+            "& span": { fontWeight: open ? 700 : 400, fontSize: fontSize.sm },
           }}
         />
         {open ? (
@@ -110,7 +110,7 @@ const MainCategoryListItem: React.FC<ListItemProps> = ({ category }) => {
       <Collapse in={open} timeout="auto" unmountOnExit>
         <List component="div" disablePadding sx={{ rowGap: 1 }}>
           {category?.SubCategory?.filter(
-            (each) => each?._count?.Listing > 0
+            (each) => each?._count?.Listing > 0,
           )?.map((each, index) => (
             <Link
               href={`/${countrySlug}/ads/list/${category.slug}/${each.slug}`}
@@ -145,7 +145,7 @@ const MainCategoryListItem: React.FC<ListItemProps> = ({ category }) => {
                   alt="icon"
                   style={{
                     marginRight: "8px",
-                    borderRadius: theme.spacing(1)
+                    borderRadius: theme.spacing(1),
                   }}
                 />
 
@@ -157,8 +157,8 @@ const MainCategoryListItem: React.FC<ListItemProps> = ({ category }) => {
                       overflow: "hidden",
                       textOverflow: "ellipsis",
                       WebkitLineClamp: 2,
-                      fontSize: fontSize.sm
-                    }
+                      fontSize: fontSize.sm,
+                    },
                   }}
                   secondary={each?.name}
                 />
@@ -166,7 +166,7 @@ const MainCategoryListItem: React.FC<ListItemProps> = ({ category }) => {
                   direction="row"
                   alignItems="center"
                   sx={{
-                    position: "relative"
+                    position: "relative",
                   }}
                 >
                   <Chip label={each?._count?.Listing ?? 0} variant="filled" />
